@@ -1,3 +1,4 @@
+<div class="container">
 <nav>
     <ul>
         <li><a href="#">Films</a></li>
@@ -8,3 +9,4 @@
         <li><a href="#">Formulaire</a></li>
     </ul>
 </nav>
+</div>
