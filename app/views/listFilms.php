@@ -8,6 +8,7 @@
             <tr>
                 <th>TITRE</th>
                 <th>ANNEE SORTIE</th>
+                <th>NOTE</th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +16,7 @@
                 <tr>
                     <td><?= $film["titre"] ?></td>
                     <td><?= $film["date"] ?></td>
+                    <td><?= $film["note"] ?></td>
                 </tr>
             <?php } ?>
         </tbody>
