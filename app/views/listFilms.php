@@ -1,29 +1,27 @@
 <?php ob_start(); ?>
 
-<p class="uk-label uk-label-warning"> Il y a <?= is_array($films) ? count($films) : 0 ?> films</p>
+<p class="uk-label uk-label-warning"> Il y a <?= count($films) ?> films</p>
 
-<div class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
-    <?php foreach($films as $film) { ?>
-        <div>
-            <div class="uk-card uk-card-default">
-                <div class="uk-card-media-top">
-                    <img src="<?= $film['affiche'] ?>" alt="<?= $film['titre'] ?>">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title"><?= $film['titre'] ?></h3>
-                    <p>Date: <?= $film['date'] ?></p>
-                    <p>Durée: <?= $film['duree'] ?> minutes</p>
-                    <p>Synopsis: <?= $film['synopsis'] ?></p>
-                    <p>Note: <?= $film['note'] ?>/10</p>
-                    <p>Réalisateur: <?= $film['id_realisateur'] ?></p>
-                </div>
-            </div>
-        </div>
-    <?php } ?>
-</div>
+<table class="uk-table uk-table-striped">
+    <thead>
+        <tr>
+            <th>TITRE</th>
+            <th>ANNEE SORTIE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($films as $film) { ?>
+            <tr>
+                <td><?= $film["titre"] ?></td>
+                <td><?= $film["date"] ?></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
 
 <?php
 
+$films = $ctrlCinema->getFilms();
 $titre = "Liste des films";
 $titre_secondaire = "Liste des films";
 $contenu = ob_get_clean();

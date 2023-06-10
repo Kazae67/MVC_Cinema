@@ -11,7 +11,7 @@ class CinemaController {
     public function listFilms() {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT titre, date
+        SELECT titre, date, affiche, duree, synopsis, note, id_realisateur
         FROM film
         ");
         
