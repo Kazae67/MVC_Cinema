@@ -1,5 +1,9 @@
 <?php ob_start(); ?>
 
+<?php
+
+?>
+
 <p class="uk-label uk-label-warning"> Il y a <?= count($films) ?> films</p>
 
 <table class="uk-table uk-table-striped">
@@ -20,8 +24,7 @@
 </table>
 
 <?php
-
-$films = $ctrlCinema->getFilms();
+$films = $ctrlCinema->listFilms();
 $titre = "Liste des films";
 $titre_secondaire = "Liste des films";
 $contenu = ob_get_clean();
