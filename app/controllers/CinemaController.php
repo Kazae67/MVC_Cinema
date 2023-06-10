@@ -11,14 +11,14 @@ class CinemaController {
     public function listFilms() {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-        SELECT titre, annee_sortie
+        SELECT titre, date
         FROM film
         ");
         
         // Récupérer les résultats de la requête
         $films = $requete->fetchAll();
 
-        require "view/listFilms.php";
+        require "app/views/listFilms.php";
     }
 }
 ?>

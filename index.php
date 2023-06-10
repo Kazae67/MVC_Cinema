@@ -1,9 +1,7 @@
 <?php
-
 require_once 'app/controllers/CinemaController.php';
 require_once 'app/models/Connect.php';
 include 'app/views/templates/header.php';
-include 'app/views/templates/footer.php'; 
 
 use Controller\CinemaController;
 
@@ -15,8 +13,13 @@ $ctrlCinema = new CinemaController();
 
 if(isset($_GET["action"])){
     switch ($_GET["action"]){
-
         case "listFilms" : $ctrlCinema->listFilms(); break;
         case "listActeurs" : $ctrlCinema->listActeurs(); break;
     }
 }
+
+include 'app/views/listFilms.php';
+include 'app/views/templates/footer.php';
+
+
+?>
