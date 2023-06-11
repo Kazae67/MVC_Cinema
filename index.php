@@ -1,22 +1,31 @@
 <?php
-require_once 'app/controllers/CinemaController.php';
-require_once 'app/models/Connect.php';
-include 'app/views/templates/header.php';
 
 use Controller\CinemaController;
-$ctrlCinema = new CinemaController();
 
-spl_autoload_register(function ($class_name){
+/* AUTO LOAD */
+spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
 
+$ctrlCinema = new CinemaController();
 
-if(isset($_GET["action"])){
-    switch ($_GET["action"]){
-        case "listFilms" : $ctrlCinema->listFilms(); break;
-    }
+/* FILTER */
+if (isset($_GET["id"])) {
+    $id = filter_var($_GET["id"], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
 }
 
-include 'app/views/listFilms.php';
-include 'app/views/templates/footer.php';
+/* FILM + DETAILS */
+if (isset($_GET["action"])) {
+    switch ($_GET["action"]) {
+        case "listFilms":
+            $ctrlCinema->listFilms();
+            break;
+        case "detailsFilm":
+            $ctrlCinema->detailsFilm($id);
+            break;
+    }
+} else {
+    $ctrlCinema->listFilms();
+}
+
 ?>
