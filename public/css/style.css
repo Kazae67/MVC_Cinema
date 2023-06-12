@@ -150,3 +150,20 @@ nav ul li a:hover{
 .gold-star {
     color: gold;
 }
+
+/* Étoiles dorées animation */
+.gold-star.animated {
+    animation: twinkling 1s infinite;
+  }
+  
+  @keyframes twinkling {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

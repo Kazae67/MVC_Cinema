@@ -30,7 +30,7 @@ $film = $request_film->fetch();
                             echo str_repeat("<i class='fa-solid fa-star blue-star'></i>", $note);
                             echo str_repeat("<i class='fa-regular fa-star'></i>", 5 - $note);
                         } elseif ($note == 5) {
-                            echo str_repeat("<i class='fa-solid fa-star gold-star'></i>", $note);
+                            echo str_repeat("<i class='fa-solid fa-star gold-star animated'></i>", $note);
                         }
                         ?>
                     </span>
