@@ -4,6 +4,8 @@ $film = $request_film->fetch();
 ?>
 
 <a href="index.php?action=listFilms" class="button"><i class="fa-solid fa-arrow-left"></i>Retour</a>
+<div class="container">
+<div class="content">
 <div class="film-card-list">
     <div class="film-card-infos">
         <div class="film-card-detail">

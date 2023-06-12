@@ -107,29 +107,34 @@ nav ul li a:hover{
     height: auto;
   }
   
-  .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container .content {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .film-card-detail {
-  font-size: 16px;
-  line-height: 1.5;
-  padding: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
 }
 
 .film-card-detail span {
-  display: block;
-  margin-bottom: 10px;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .film-card-detail a {
-  color: #0000FF;
-  text-decoration: underline;
+    color: #0000FF;
+    text-decoration: underline;
 }
 
-.error {
-  color: red;
-}
