@@ -19,9 +19,9 @@
 <body>
     <main>
         <nav>
-            <h2 class="logo"><a href="index.php?action=listFilms">Cinema</a></h2>
+            <h2 class="logo"><a href="index.php?action=film/listFilms">Cinema</a></h2>
             <ul class="menu">
-                <li><a href="index.php?action=listFilms">Films</a></li>
+                <li><a href="index.php?action=film/listFilms">Films</a></li>
                 <li><a href="index.php?action=listActeurs">Acteurs</a></li>
                 <li><a href="index.php?action=listRoles">Rôles</a></li>
                 <li><a href="index.php?action=listRealisateurs">Réalisateurs</a></li>
