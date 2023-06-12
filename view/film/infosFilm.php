@@ -9,6 +9,7 @@ $film = $request_film->fetch();
             <div class="film-card-infos">
                 <div class="film-card-detail">
                     <span><b>Note :</b>
+                        <!-- CONDITION ÉTOILES -->
                         <?php
                         $note = $film["note"];
                         if ($note >= 0 && $note <= 2) {
@@ -22,6 +23,8 @@ $film = $request_film->fetch();
                         }
                         ?>
                     </span>
+                    
+                    <!-- INFOS -->
                     <span class="film-info"><b>Titre :</b> <?= $film["titre_film"] ?></span>
                     <span class="film-info"><b>Réalisateur :</b> <a href="index.php?action=infosRealisateur&id=<?= $film['id_realisateur'] ?>"><?= $film["rea_prenom"] . " " . $film["rea_nom"] ?></a></span>
                     <span><b>Date de sortie :</b> <?= $film["date_sortie"] ?></span>
@@ -52,6 +55,7 @@ $film = $request_film->fetch();
                     }
                     ?>
 
+                    <!-- IMAGE -->
                     <img class="image-film-xl" src="<?= $film["film_url_img"] ?>" alt="affiche <?= $film["titre_film"] ?>">
                 </div>
             </div>

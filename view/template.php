@@ -6,18 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a45e9c27c8.js" crossorigin="anonymous"></script>
+    <!-- FILMS -->
     <link rel="stylesheet" href="public/css/film/infosFilm.css">
     <link rel="stylesheet" href="public/css/film/etoiles.css">
     <link rel="stylesheet" href="public/css/film/listFilms.css">
+    <!-- ACTEURS -->
     <link rel="stylesheet" href="public/css/acteur/listActeurs.css">
+    <!-- NAVBAR -->
     <link rel="stylesheet" href="public/css/navbar.css">
+    <!-- STANDARD -->
     <link rel="stylesheet" href="public/css/standard.css">
+    <!-- STYLE (TESTING) -->
     <link rel="stylesheet" href="public/css/style.css">
 
     <title>Cinema</title>
 </head>
 
 <body>
+    <!-- NAVBAR -->
     <main>
         <nav>
             <h2 class="logo"><a href="index.php?action=listFilms">Cinema</a></h2>

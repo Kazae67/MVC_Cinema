@@ -8,7 +8,7 @@ use Model\Connect;
 class CinemaController
 {
 
-    /* FILMS */
+    /****** FILMS ******/
     /* Liste des FILMS */
     public function listFilms()
     {
@@ -54,7 +54,7 @@ class CinemaController
         require "view/film/infosFilm.php";
     }
 
-    /* ACTEURS */
+    /****** ACTEURS ******/
     /* liste des ACTEURS */
         public function listActeurs()
         {

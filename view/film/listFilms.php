@@ -1,8 +1,10 @@
 <?php ob_start(); ?>
+
+<!-- TOTAL FILMS -->
 <?php $liste = "Les films disponible".(($request->rowCount() > 1) ? "s" : ""); ?>
 <p class="row-count-list">Un total de <?= $request->rowCount() ?> film<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
-
+<!-- LISTE DE FILMS + INFOS -->
 <div class="film-card-list">
 	<?php foreach ($request->fetchAll() as $film): ?>
 		<a href="index.php?action=infosFilm&id=<?= $film["id_film"] ?>">
