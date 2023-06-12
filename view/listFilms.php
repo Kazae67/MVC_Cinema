@@ -1,5 +1,6 @@
 <?php ob_start(); ?>
-<p class="row-count-list">Il y a <?= $request->rowCount() ?> films</p>
+<p class="row-count-list">Un total de <?= $request->rowCount() ?> film<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
+
 
 <div class="film-card-list">
 	<?php foreach ($request->fetchAll() as $film): ?>
@@ -22,7 +23,7 @@
 </div>
 
 <?php
-$liste = "Liste des films";
+$liste = "Les films disponible".(($request->rowCount() > 1) ? "s" : "");
 $content = ob_get_clean();
 require "view/template.php";
 ?>
