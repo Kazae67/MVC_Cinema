@@ -7,7 +7,7 @@ ob_start();
         <?php
         foreach ($request->fetchAll() as $acteur) { ?>
                         <div class="film-card-person">
-                                <a href="index.php?action=detailsActeur&id=<?= $acteur["id_acteur"] ?>">
+                                <a href="index.php?action=infosActeur&id=<?= $acteur["id_acteur"] ?>">
                                         <span><?= ucfirst("Acteur :".$acteur["nom"])." ".ucfirst($acteur["prenom"]) ?></span>
                                         <span><?= "Date de naissance : ".$acteur["birthdate"] ?></span>
                                         <span><?= "Sexe : ".$acteur["sexe"] ?></span>

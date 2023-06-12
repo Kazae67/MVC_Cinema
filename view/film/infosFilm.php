@@ -42,7 +42,7 @@ $film = $request_film->fetch();
                         <?php
                         foreach ($request_casting->fetchAll() as $casting) {
                             ?>
-                            <span> - <a href="index.php?action=detailsActeur&id=<?= $casting['id_acteur'] ?>"><?= $casting["prenom"] . " " . $casting["nom"] ?></a> dans le rôle de <?= $casting["role_name"] ?></span>
+                            <span> - <a href="index.php?action=infosActeur&id=<?= $casting['id_acteur'] ?>"><?= $casting["prenom"] . " " . $casting["nom"] ?></a> dans le rôle de <?= $casting["role_name"] ?></span>
                             <?php
                         }
                     } else {
