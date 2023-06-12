@@ -100,3 +100,36 @@ nav ul li a:hover{
     display: block;
     margin-bottom: 5px;
 }
+
+/* Description */ 
+.image-film-xl {
+    width: 300px; /* Ajustez la largeur selon vos besoins */
+    height: auto;
+  }
+  
+  .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.film-card-detail {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+}
+
+.film-card-detail span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.film-card-detail a {
+  color: #0000FF;
+  text-decoration: underline;
+}
+
+.error {
+  color: red;
+}
