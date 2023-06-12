@@ -11,7 +11,7 @@ $film = $request_film->fetch();
             <span>Realisateur : <a href="index.php?action=detailsRealisateur&id=<?= $film['id_realisateur'] ?>"><?= $film["rea_prenom"] . " " . $film["rea_nom"] ?></a></span>
             <span>Genre : <?= ucfirst($film["genre_name"]) ?></span>
             <span>Date de sortie : <?= $film["date_sortie"] ?></span>
-            <span>Durée du film : 
+            <span>Durée du film :
                 <?php
                 $minutes = $film["duree"];
                 $duree = date('H:i', mktime(0, $minutes));
