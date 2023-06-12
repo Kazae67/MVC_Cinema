@@ -14,19 +14,23 @@ if (isset($_GET["id"])) {
     $id = filter_var($_GET["id"], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
 }
 
-/* FILM + DETAILS */
+/* SWITCH */
 if (isset($_GET["action"])) {
     switch ($_GET["action"]) {
+        /* Liste des FILMS */
         case "listFilms":
             $ctrlCinema->listFilms();
             break;
+        /* Infos du FILM */
         case "infosFilm":
             $ctrlCinema->infosFilm($id);
             break;
+        /* Liste des ACTEURS */
         case "listActeurs":
             $ctrlCinema->listActeurs();
             break;
-        case "detailsActeur":
+        /* Infos de l'ACTEUR */
+        case "infosActeur":
             $ctrlCinema->infosActeur($id);
             break;
     }

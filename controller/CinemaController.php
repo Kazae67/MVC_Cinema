@@ -7,6 +7,9 @@ use Model\Connect;
 
 class CinemaController
 {
+
+    /* FILMS */
+    /* Liste des FILMS */
     public function listFilms()
     {
         $pdo = Connect::connectToDb();
@@ -21,6 +24,7 @@ class CinemaController
         require "view/film/listFilms.php";
     }
 
+    /* Infos du FILM */
     public function infosFilm($id_film)
     {
         $pdo = Connect::connectToDb();
@@ -49,4 +53,18 @@ class CinemaController
 
         require "view/film/infosFilm.php";
     }
-}
+
+    /* ACTEURS */
+    /* liste des ACTEURS */
+        public function listActeurs()
+        {
+
+            $pdo = Connect::connectToDb();
+            $request = $pdo->query("
+        SELECT prenom, nom, sexe, DATE_FORMAT(birthdate, '%d-%m-%Y') AS birthdate, id_acteur
+        FROM acteur 
+        ");
+
+            require "view/listActeurs.php";
+        }
+    }
