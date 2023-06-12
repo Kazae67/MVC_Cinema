@@ -55,31 +55,28 @@ nav ul li a:hover{
   justify-content: flex-start;
 }
 
-.film-card {
-  width: 200px; 
-  margin: 10px;
-}
-
-.film-card-infos {
-}
-
+/* Taille de l'image */
 .image-film {
     width: 100%;
     height: 250px; 
     object-fit: cover; 
-  }
-  .film-card {
+}
+
+/* Taille Cards */
+.film-card {
     position: relative; 
     width: 200px;
-    margin: 10px;
+    margin: 5px;
     transition: transform 0.3s; 
-  }
+}
   
-  .film-card:hover {
+/* Hover Cards */
+.film-card:hover {
     transform: scale(1.1);
-  }
+}
   
-  .film-card .film-card-infos {
+/* Boite infos */
+.film-card .film-card-infos {
     position: absolute; 
     top: 0;
     left: 0;
@@ -91,14 +88,15 @@ nav ul li a:hover{
     box-sizing: border-box;
     opacity: 0; 
     transition: opacity 0.5s; 
-  }
+}
   
-  .film-card:hover .film-card-infos {
+/* Activé/Désactivé */
+.film-card:hover .film-card-infos {
     opacity: 1; 
-  }
-  
-  .film-card .film-card-infos span {
+}
+
+.film-card .film-card-infos span {
     color:white;
     display: block;
     margin-bottom: 5px;
-  }
+}
