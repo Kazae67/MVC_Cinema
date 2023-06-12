@@ -1,26 +1,26 @@
 <?php
 ob_start();
 ?>
-<p class="row-count-list"> Il y a <?= $request->rowCount() ?> acteurs</p>
+<?php $liste = "Les acteurs disponible".(($request->rowCount() > 1) ? "s" : ""); ?>
+<p class="row-count-list">Un total de <?= $request->rowCount() ?> acteur<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
-<div class="film-card-list">
-        <?php
-        foreach ($request->fetchAll() as $acteur) { ?>
-                        <div class="film-card-person">
-                                <a href="index.php?action=infosActeur&id=<?= $acteur["id_acteur"] ?>">
-                                        <span><?= ucfirst("Acteur :".$acteur["nom"])." ".ucfirst($acteur["prenom"]) ?></span>
-                                        <span><?= "Date de naissance : ".$acteur["birthdate"] ?></span>
-                                        <span><?= "Sexe : ".$acteur["sexe"] ?></span>
+<div class="acteur-card-list">
+        <?php foreach ($request->fetchAll() as $acteur): ?>
+                <a href="index.php?action=infosActeur&id=<?= $acteur["id_acteur"] ?>">
+                <div class="acteur-card">
+                        <div class="acteur-card-infos">
+                             <span><?= ucfirst($acteur["nom"])." ".ucfirst($acteur["prenom"]) ?></span>
+                             <span><?= "Né(e) : ".$acteur["birthdate"] ?></span>
+                             <span><?= "Sexe : ".$acteur["sexe"] ?></span>
                         </div>
-                                </a>
-        <?php } ?>
+                        <img class="image-acteur" src="<?= $acteur["acteur_url_img"] ?>" alt="affiche de acteur">
+                </div>
+             </a>
+        <?php endforeach;?>
         </div>
 
 <?php
 
-$title = "Liste des acteurs";
-$secondary_title = "Liste des acteurs";
 $content = ob_get_clean();
-
-
 require "view/template.php";
+

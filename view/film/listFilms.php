@@ -17,7 +17,7 @@
 					?>
 					<span><?= "Durée : ".$duree ?></span>
 				</div>
-				<img class="image-film" src="<?= $film["url_img"] ?>" alt="affiche du film <?= $film["titre_film"] ?>">
+				<img class="image-film" src="<?= $film["film_url_img"] ?>" alt="affiche du film <?= $film["titre_film"] ?>">
 			</div>
 		</a>
 	<?php endforeach; ?>

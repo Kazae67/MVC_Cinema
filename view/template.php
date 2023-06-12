@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="public/css/film/infosFilm.css">
     <link rel="stylesheet" href="public/css/film/etoiles.css">
     <link rel="stylesheet" href="public/css/film/listFilms.css">
+    <link rel="stylesheet" href="public/css/acteur/listActeurs.css">
     <link rel="stylesheet" href="public/css/navbar.css">
     <link rel="stylesheet" href="public/css/standard.css">
     <link rel="stylesheet" href="public/css/style.css">

@@ -15,7 +15,7 @@ class CinemaController
         $pdo = Connect::connectToDb();
 
         $request = $pdo->query("
-            SELECT id_film, titre_film, date_sortie, genre_name, duree, url_img
+            SELECT id_film, titre_film, date_sortie, genre_name, duree, film_url_img
             FROM film
             INNER JOIN genre ON genre.id_genre = film.genre_id
             ORDER BY date_sortie DESC
@@ -31,7 +31,7 @@ class CinemaController
         $titre_film = "$id_film";
         
         $request_film = $pdo->prepare("
-            SELECT titre_film, date_sortie, duree, synopsis, genre_name, d.prenom AS rea_prenom, d.nom AS rea_nom, note, url_img, id_realisateur
+            SELECT titre_film, date_sortie, duree, synopsis, genre_name, d.prenom AS rea_prenom, d.nom AS rea_nom, note, film_url_img, id_realisateur
             FROM film f
             INNER JOIN realisateur d ON f.realisateur_id = d.id_realisateur
             INNER JOIN genre g ON g.id_genre = f.genre_id
@@ -61,7 +61,7 @@ class CinemaController
 
             $pdo = Connect::connectToDb();
             $request = $pdo->query("
-        SELECT prenom, nom, sexe, DATE_FORMAT(birthdate, '%d-%m-%Y') AS birthdate, id_acteur
+        SELECT prenom, nom, sexe, DATE_FORMAT(birthdate, '%d-%m-%Y') AS birthdate, id_acteur, acteur_url_img
         FROM acteur 
         ");
 

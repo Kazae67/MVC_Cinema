@@ -52,7 +52,7 @@ $film = $request_film->fetch();
                     }
                     ?>
 
-                    <img class="image-film-xl" src="<?= $film["url_img"] ?>" alt="affiche <?= $film["titre_film"] ?>">
+                    <img class="image-film-xl" src="<?= $film["film_url_img"] ?>" alt="affiche <?= $film["titre_film"] ?>">
                 </div>
             </div>
         </div>
