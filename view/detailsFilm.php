@@ -9,18 +9,7 @@ $film = $request_film->fetch();
         <div class="film-card-list">
             <div class="film-card-infos">
                 <div class="film-card-detail">
-                    <span><?= $film["titre_film"] ?></span>
-                    <span>Realisateur : <a href="index.php?action=detailsRealisateur&id=<?= $film['id_realisateur'] ?>"><?= $film["rea_prenom"] . " " . $film["rea_nom"] ?></a></span>
-                    <span>Genre : <?= ucfirst($film["genre_name"]) ?></span>
-                    <span>Date de sortie : <?= $film["date_sortie"] ?></span>
-                    <span>Durée du film :
-                        <?php
-                        $minutes = $film["duree"];
-                        $duree = date('H:i', mktime(0, $minutes));
-                        echo $duree;
-                        ?>
-                    </span>
-                    <span>Note :
+                    <span><b>Note :</b>
                         <?php
                         $note = $film["note"];
                         if ($note >= 0 && $note <= 2) {
@@ -34,12 +23,23 @@ $film = $request_film->fetch();
                         }
                         ?>
                     </span>
-                    <span>Synopsis : <?= $film["synopsis"] ?></span>
+                    <span class="film-info"><b>Titre :</b> <?= $film["titre_film"] ?></span>
+                    <span class="film-info"><b>Réalisateur :</b> <a href="index.php?action=detailsRealisateur&id=<?= $film['id_realisateur'] ?>"><?= $film["rea_prenom"] . " " . $film["rea_nom"] ?></a></span>
+                    <span><b>Date de sortie :</b> <?= $film["date_sortie"] ?></span>
+                    <span><b>Durée du film :</b>
+                        <?php
+                        $minutes = $film["duree"];
+                        $duree = date('H:i', mktime(0, $minutes));
+                        echo $duree;
+                        ?>
+                    </span>
+                    <span><b>Genre :</b> <?= ucfirst($film["genre_name"]) ?></span>
+                    <span><b>Synopsis :</b> <?= $film["synopsis"] ?></span>
 
                     <?php
                     if ($request_casting->rowCount() > 0) {
                         ?>
-                        <span>Il y a un total de <?= $request_casting->rowCount() ?> acteurs dans ce film :</span>
+                        <span>Il y a un total de <?= $request_casting->rowCount() ?> acteur<?= ($request_casting->rowCount() > 1) ? "s" : "" ?> dans ce film :</span>
                         <?php
                         foreach ($request_casting->fetchAll() as $casting) {
                             ?>
