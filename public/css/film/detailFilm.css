@@ -1,7 +1,8 @@
 /* Description */ 
 .image-film-xl {
-    width: 300px; /* Ajustez la largeur selon vos besoins */
+    width: 300px;
     height: auto;
+    border-radius:20px;
   }
   
 .container {
