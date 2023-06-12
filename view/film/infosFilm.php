@@ -23,7 +23,7 @@ $film = $request_film->fetch();
                         ?>
                     </span>
                     <span class="film-info"><b>Titre :</b> <?= $film["titre_film"] ?></span>
-                    <span class="film-info"><b>Réalisateur :</b> <a href="index.php?action=detailsRealisateur&id=<?= $film['id_realisateur'] ?>"><?= $film["rea_prenom"] . " " . $film["rea_nom"] ?></a></span>
+                    <span class="film-info"><b>Réalisateur :</b> <a href="index.php?action=infosRealisateur&id=<?= $film['id_realisateur'] ?>"><?= $film["rea_prenom"] . " " . $film["rea_nom"] ?></a></span>
                     <span><b>Date de sortie :</b> <?= $film["date_sortie"] ?></span>
                     <span><b>Durée du film :</b>
                         <?php
