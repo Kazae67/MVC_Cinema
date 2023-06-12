@@ -1,10 +1,11 @@
 <?php ob_start(); ?>
+<?php $liste = "Les films disponible".(($request->rowCount() > 1) ? "s" : ""); ?>
 <p class="row-count-list">Un total de <?= $request->rowCount() ?> film<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
 
 <div class="film-card-list">
 	<?php foreach ($request->fetchAll() as $film): ?>
-		<a href="index.php?action=detailsFilm&id=<?= $film["id_film"] ?>">
+		<a href="index.php?action=infosFilm&id=<?= $film["id_film"] ?>">
 			<div class="film-card">
 				<div class="film-card-infos">
 					<span><?= "Titre : ".$film["titre_film"] ?></span>
@@ -23,7 +24,7 @@
 </div>
 
 <?php
-$liste = "Les films disponible".(($request->rowCount() > 1) ? "s" : "");
+
 $content = ob_get_clean();
 require "view/template.php";
 ?>

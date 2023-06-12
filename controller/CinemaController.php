@@ -21,7 +21,7 @@ class CinemaController
         require "view/listFilms.php";
     }
 
-    public function detailsFilm($id_film)
+    public function infosFilm($id_film)
     {
         $pdo = Connect::connectToDb();
         $titre_film = "$id_film";
@@ -47,6 +47,6 @@ class CinemaController
 
         $request_casting->execute(["id_film" => $id_film]);
 
-        require "view/detailsFilm.php";
+        require "view/infosFilm.php";
     }
 }

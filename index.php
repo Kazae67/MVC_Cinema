@@ -20,8 +20,8 @@ if (isset($_GET["action"])) {
         case "listFilms":
             $ctrlCinema->listFilms();
             break;
-        case "detailsFilm":
-            $ctrlCinema->detailsFilm($id);
+        case "infosFilm":
+            $ctrlCinema->infosFilm($id);
             break;
     }
 } else {
