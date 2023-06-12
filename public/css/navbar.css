@@ -1,4 +1,4 @@
-/* Nav */
+/* NAVBAR */
 nav{
     display: flex;
     align-items:flex-end;
@@ -11,6 +11,8 @@ nav{
   nav h2{
   margin-bottom: 22px;
   }
+
+  /* LOGO */
   .logo{
     color: black;
     font-size: 24px;
