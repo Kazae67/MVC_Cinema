@@ -21,7 +21,7 @@ class CinemaController
             ORDER BY date_sortie DESC
         ");
 
-        require "view/film/listFilms.php";
+        require "listFilms.php";
     }
 
     /* Infos du FILM */
@@ -51,7 +51,7 @@ class CinemaController
 
         $request_casting->execute(["id_film" => $id_film]);
 
-        require "view/film/infosFilm.php";
+        require "infosFilm.php";
     }
 
     /* ACTEURS */
