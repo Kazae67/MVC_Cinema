@@ -138,3 +138,15 @@ nav ul li a:hover{
     text-decoration: underline;
 }
 
+/* Étoiles */
+.red-star {
+    color: red;
+}
+
+.blue-star {
+    color: rgb(69, 69, 235);
+}
+
+.gold-star {
+    color: gold;
+}
