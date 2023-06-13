@@ -27,7 +27,7 @@ $imagePath = 'public/images/imgFilms/';
                 </div>
 
                 <!-- IMAGE -->
-                <?php $imageSrc = $imagePath . $film["path_url"]; ?>
+                <?php $imageSrc = $imagePath . $film["path_img_film"]; ?>
                 <img class="image-film" src="<?= $imageSrc ?>" alt="affiche du film <?= $film["titre_film"] ?>">
             </div>
         </a>

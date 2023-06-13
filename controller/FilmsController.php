@@ -12,7 +12,7 @@ class FilmsController {
         $pdo = Connect::connectToDb();
 
         $request = $pdo->query("
-            SELECT id_film, titre_film, date_sortie, genre_name, duree, path_url
+            SELECT id_film, titre_film, date_sortie, genre_name, duree, path_img_film
             FROM film
             INNER JOIN genre ON genre.id_genre = film.genre_id
             ORDER BY date_sortie DESC
@@ -27,7 +27,7 @@ class FilmsController {
         $pdo = Connect::connectToDb();
 
         $request_film = $pdo->prepare("
-            SELECT titre_film, date_sortie, duree, synopsis, genre_name, d.prenom AS rea_prenom, d.nom AS rea_nom, note, path_url, id_realisateur
+            SELECT titre_film, date_sortie, duree, synopsis, genre_name, d.prenom AS rea_prenom, d.nom AS rea_nom, note, path_img_film, id_realisateur
             FROM film f
             INNER JOIN realisateur d ON f.realisateur_id = d.id_realisateur
             INNER JOIN genre g ON g.id_genre = f.genre_id

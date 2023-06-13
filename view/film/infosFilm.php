@@ -2,7 +2,7 @@
 ob_start();
 $imagePath = 'public/images/imgFilms/';
 $film = $request_film->fetch();
-$imageSrc = $imagePath . $film["path_url"];
+$imageSrc = $imagePath . $film["path_img_film"];
 
 ?>
 
