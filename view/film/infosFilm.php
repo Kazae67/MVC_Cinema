@@ -2,11 +2,6 @@
 ob_start();
 $film = $request_film->fetch();
 
-// Récupérer l'ID de l'image à partir de l'URL
-$imageId = $_GET['image'];
-
-// Chemin de l'image du film
-$imagePath = 'public/images/imgFilms/' . $imageId . '.jpg';
 ?>
 
 <div class="container">
@@ -62,7 +57,7 @@ $imagePath = 'public/images/imgFilms/' . $imageId . '.jpg';
                     ?>
 
                     <!-- IMAGE -->
-                    <img class="image-film-xl" src="<?= $imagePath ?>" alt="affiche du film <?= $film["titre_film"] ?>">
+                    <img class="image-film-xl" src="<?= $film["film_url_img"] ?>" alt="affiche <?= $film["titre_film"] ?>">
                 </div>
             </div>
         </div>
