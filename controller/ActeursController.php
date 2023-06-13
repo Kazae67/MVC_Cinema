@@ -32,7 +32,7 @@ class ActeursController {
         $request_acteur_infos->execute(["id_acteur" => $id_acteur]);
 
         $request_acteur_list_films = $pdo->prepare("
-            SELECT a.id_acteur, f.titre_film, f.date_sortie, r.role_name, f.id_film, f.film_url_img
+            SELECT a.id_acteur, f.titre_film, f.date_sortie, r.role_name, f.id_film, f.path_img_film
             FROM acteur a
             INNER JOIN casting c ON c.acteur_id = a.id_acteur
             INNER JOIN film f ON f.id_film = c.film_id

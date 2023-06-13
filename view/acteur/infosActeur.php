@@ -1,8 +1,6 @@
 <?php
 ob_start();
 ?>
-
-
 <div class="film-acteur-card-list">
 	<div class="film-acteur-card-detail">
 		<?php if (isset($request_acteur_infos)) {
@@ -25,7 +23,7 @@ ob_start();
                     <div class="film-container">
                         <a href="index.php?action=infosFilm&id=<?= $acteur_film['id_film'] ?>">
                             <div class="film-acteur-card">
-                                <img class="image-acteur-film" src="<?= $acteur_film['film_url_img'] ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
+                                <img class="image-acteur-film" src="<?= $acteur_film['path_img_film'] ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
                                 <div class="film-info">
                                     <span class="film-title"><?= $acteur_film['titre_film'] ?></span>
                                     <span class="film-role">Rôle : <?= $acteur_film['role_name'] ?></span>
