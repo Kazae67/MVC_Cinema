@@ -12,7 +12,7 @@ class ActeursController {
         $pdo = Connect::connectToDb();
 
         $request = $pdo->query("
-            SELECT prenom, nom, sexe, DATE_FORMAT(birthdate, '%d-%m-%Y') AS birthdate, id_acteur, acteur_url_img
+            SELECT prenom, nom, sexe, DATE_FORMAT(birthdate, '%d-%m-%Y') AS birthdate, id_acteur, path_img_acteur
             FROM acteur 
         ");
 

@@ -16,7 +16,7 @@ ob_start();
                 <!-- IMAGE -->
                 <?php 
                 $imagePath = "public/images/imgActeurs/";
-                $imageFilename = $acteur["acteur_url_img"];
+                $imageFilename = $acteur["path_img_acteur"];
                 $imageUrl = $imagePath . $imageFilename;
                 ?>
                 <img class="image-acteur" src="<?= $imageUrl ?>" alt="affiche de l'acteur <?= ucfirst($acteur["nom"]) . " " . ucfirst($acteur["prenom"]) ?>">
