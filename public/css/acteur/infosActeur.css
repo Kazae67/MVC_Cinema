@@ -1,0 +1,55 @@
+/* images miniatures */
+.image-acteur-film {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* informations du film */
+.film-acteur-card-detail h2 {
+    margin-bottom: 10px;
+}
+
+.film-acteur-card-detail span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.film-acteur-card-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.film-container {
+    background-color: white;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 250px; 
+    border-radius: 20px; 
+}
+
+.film-acteur-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.film-info {
+    padding: 10px;
+}
+
+.film-title {
+    font-weight: bold;
+}
+
+.film-role,
+.film-date {
+    font-style: italic;
+}
+
+/* message d'erreur */
+.error {
+    color: red;
+    font-weight: bold;
+}

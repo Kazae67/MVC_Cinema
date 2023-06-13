@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="public/css/film/listFilms.css">
     <!-- ACTEURS -->
     <link rel="stylesheet" href="public/css/acteur/listActeurs.css">
+    <link rel="stylesheet" href="public/css/acteur/infosActeur.css">
     <!-- NAVBAR -->
     <link rel="stylesheet" href="public/css/navbar.css">
     <!-- STANDARD -->
