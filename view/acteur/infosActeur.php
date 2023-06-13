@@ -18,12 +18,17 @@ ob_start();
 				
 				<?php 
 			if($request_acteur_list_films->rowCount()>0){
-				foreach($request_acteur_list_films->fetchAll() as $acteur_film){ ?>
-				<span><a href="index.php?action=infosFilm&id=<?=$acteur_film['id_film']?>">
-                <?= $acteur_film["titre_film"]."</a>". " Date : " .$acteur_film["date_sortie"]." Role : ".$acteur_film["role_name"]?></span>
-			<?php
-
-            }
+				foreach ($request_acteur_list_films->fetchAll() as $acteur_film) {
+					?>
+					<span>
+						<a href="index.php?action=infosFilm&id=<?= $acteur_film['id_film'] ?>">
+							<img class="image-film" src="<?= $acteur_film['film_url_img'] ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
+							<?= $acteur_film['titre_film'] ?>
+						</a>
+						Date : <?= $acteur_film['date_sortie'] ?> Role : <?= $acteur_film['role_name'] ?>
+					</span>
+					<?php
+				}
 
             }else{ ?>
 				<span class="error">Cet acteur a joué dans aucun film.</span>
