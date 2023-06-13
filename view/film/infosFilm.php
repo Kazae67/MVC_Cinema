@@ -1,6 +1,8 @@
 <?php
 ob_start();
+$imagePath = 'public/images/imgFilms/';
 $film = $request_film->fetch();
+$imageSrc = $imagePath . $film["path_url"];
 
 ?>
 
@@ -57,7 +59,8 @@ $film = $request_film->fetch();
                     ?>
 
                     <!-- IMAGE -->
-                    <img class="image-film-xl" src="<?= $film["film_url_img"] ?>" alt="affiche <?= $film["titre_film"] ?>">
+                    <img class="image-film-xl" src="<?= $imageSrc ?>" alt="affiche du film <?= $film["titre_film"] ?>">
+
                 </div>
             </div>
         </div>
