@@ -1,13 +1,17 @@
 <?php
 
-use Controller\CinemaController;
+use Controller\FilmsController;
+use Controller\ActeursController;
+use Controller\RolesController;
 
 /* AUTO LOAD */
 spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
 
-$ctrlCinema = new CinemaController();
+$FilmsController = new FilmsController();
+$ActeursController = new ActeursController();
+$RolesController = new RolesController();
 
 /* FILTER */
 if (isset($_GET["id"])) {
@@ -19,26 +23,26 @@ if (isset($_GET["action"])) {
     switch ($_GET["action"]) {
         /* Liste des FILMS */
         case "listFilms":
-            $ctrlCinema->listFilms();
+            $FilmsController->listFilms();
             break;
         /* Infos du FILM */
         case "infosFilm":
-            $ctrlCinema->infosFilm($id);
+            $FilmsController->infosFilm($id);
             break;
         /* Liste des ACTEURS */
         case "listActeurs":
-            $ctrlCinema->listActeurs();
+            $ActeursController->listActeurs();
             break;
         /* Infos de l'ACTEUR */
         case "infosActeur":
-            $ctrlCinema->infosActeur($id);
+            $ActeursController->infosActeur($id);
             break;
         case "listRoles":
-            $ctrlCinema->listRoles();
+            $RolesController->listRoles();
             break;
     }
 } else {
-    $ctrlCinema->listFilms();
+    $FilmsController->listFilms();
 }
 
 ?>
