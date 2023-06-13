@@ -101,4 +101,16 @@ class CinemaController
     
         require "view/acteur/infosActeur.php";
     }
+
+    public function listRoles()
+    {
+        $pdo = Connect::connectToDb();
+        $request = $pdo->query("
+            SELECT role_name
+            FROM role
+        ");
+    
+        require "view/role/listRoles.php";
+    }
+    
 }

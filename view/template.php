@@ -13,6 +13,8 @@
     <!-- ACTEURS -->
     <link rel="stylesheet" href="public/css/acteur/listActeurs.css">
     <link rel="stylesheet" href="public/css/acteur/infosActeur.css">
+    <!-- ROLES -->
+    <link rel="stylesheet" href="public/css/role/listRoles.css">
     <!-- NAVBAR -->
     <link rel="stylesheet" href="public/css/navbar.css">
     <!-- STANDARD -->
