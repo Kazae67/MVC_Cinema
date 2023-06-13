@@ -5,6 +5,8 @@ namespace Controller;
 use Model\Connect;
 
 class FilmsController {
+
+    // Liste des FILMS
     public function listFilms()
     {
         $pdo = Connect::connectToDb();
@@ -19,18 +21,17 @@ class FilmsController {
         require "view/film/listFilms.php";
     }
 
-    /* Infos du FILM */
+    // Infos du FILM 
     public function infosFilm($id_film)
     {
         $pdo = Connect::connectToDb();
-        $titre_film = "$id_film";
-        
+
         $request_film = $pdo->prepare("
             SELECT titre_film, date_sortie, duree, synopsis, genre_name, d.prenom AS rea_prenom, d.nom AS rea_nom, note, film_url_img, id_realisateur
             FROM film f
             INNER JOIN realisateur d ON f.realisateur_id = d.id_realisateur
             INNER JOIN genre g ON g.id_genre = f.genre_id
-            WHERE  f.id_film = :id_film
+            WHERE f.id_film = :id_film
         ");
 
         $request_film->execute(["id_film" => $id_film]);
@@ -49,3 +50,4 @@ class FilmsController {
         require "view/film/infosFilm.php";
     }
 }
+?>
