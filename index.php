@@ -3,6 +3,7 @@
 use Controller\FilmsController;
 use Controller\ActeursController;
 use Controller\RolesController;
+use Controller\RealisateursController;
 
 /* AUTO LOAD */
 spl_autoload_register(function ($class_name) {
@@ -12,6 +13,7 @@ spl_autoload_register(function ($class_name) {
 $FilmsController = new FilmsController();
 $ActeursController = new ActeursController();
 $RolesController = new RolesController();
+$RealisateursController = new RealisateursController();
 
 /* FILTER */
 if (isset($_GET["id"])) {
@@ -43,6 +45,12 @@ if (isset($_GET["action"])) {
         case "infosRole":
             $RolesController->infosRole($id);
             break;
+        /* Liste des REALISATEURS */
+        case "listRealisateurs":
+            $RealisateursController->listRealisateurs();
+            break;
+        case "infosRealisateur":
+            $RealisateursController->infosRealisateur();
     }
 } else {
     $FilmsController->listFilms();

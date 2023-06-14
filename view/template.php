@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="public/css/acteur/infosActeur.css">
     <!-- ROLES -->
     <link rel="stylesheet" href="public/css/role/listRoles.css">
+    <link rel="stylesheet" href="public/css/role/infoRole.css">
+    <!-- REALISATEUR -->
+    <link rel="stylesheet" href="public/css/realisateur/listRealisateurs.css">
+    <link rel="stylesheet" href="public/css/realisateur/infosRealisateur.css">
     <!-- NAVBAR -->
     <link rel="stylesheet" href="public/css/navbar.css">
     <!-- STANDARD -->
