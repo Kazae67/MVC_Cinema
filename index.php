@@ -50,7 +50,7 @@ if (isset($_GET["action"])) {
             $RealisateursController->listRealisateurs();
             break;
         case "infosRealisateur":
-            $RealisateursController->infosRealisateur();
+            $RealisateursController->infosRealisateur($id);
     }
 } else {
     $FilmsController->listFilms();

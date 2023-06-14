@@ -6,3 +6,15 @@ mettre le titre avec l'extension dedans
 faire en sorte de changer infosActeur.css pour qu'il ne réagis pas sur infosFilm.php
 
 model : gérer que des objets
+
+
+___________
+
+
+Conseil d'alexandre :
+Les 2 détails qui peuvent être améliorés (rien de très important, mais comme on n'a jamais fini de s'améliorer) :
+
+ - le nom de l'image peut contenir des espaces et devrait contenir le "titre complet" (avec l'épisode, un nom ou un chiffre). Exemple : "Dragonball Z : Broly.jpg". Là je me dis que les ":" sont interdits dans les noms de fichier, donc je mettrais : "Dragonball Z Broly.jpg" 
+- Kazae.kaz67.com 
+trello: Kazae.kaz67@/g/h.com
+ - le nom de la colonne devrait être quelque chose comme "film_img", "film_affiche", "affiche_img_fichier", ... en fonction de vos goûts, mais pas "...url..." qui est un lien externe "https://..."
