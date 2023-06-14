@@ -12,6 +12,11 @@ ob_start();
             </p>
             <span>Né le : <?= $realisateur_infos["birthdate"] ?></span>
 
+            <?php if (!empty($realisateur_infos["biographie"])) { ?>
+                <h2>Biographie</h2>
+                <p class="biographie"><?= $realisateur_infos["biographie"] ?></p>
+            <?php } ?>
+
             <span>
                 Film<?= ($request_realisateur_list_films->rowCount() > 1) ? "s" : "" ?> réalisé<?= ($request_realisateur_list_films->rowCount() > 1) ? "s" : "" ?> :
             </span>
