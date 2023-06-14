@@ -1,30 +1,51 @@
 <?php
-
-ob_start(); 
+ob_start();
 ?>
-	<div class="film-card-list">
-		
-		<div class="film-card-info">
-		<?php 
-			if(isset($request_realisateur_infos)){
-				$realisateur_infos = $request_realisateur_infos->fetch();
-			?>
-			<span><?=$realisateur_infos["prenom"]." ".$realisateur_infos["nom"]." est né le ".$realisateur_infos["birthdate"]?><br></span>
-			<span>a réalisé les films : <br><br></span>
-				<?php } ?>
-			<?php 
-			if($request_realisateur_list_films->rowCount()>0){
-				foreach($request_realisateur_list_films->fetchAll() as $realisateur_film){ ?>
-				<span> - <a href="index.php?action=infosFilm&id=<?=$realisateur_film['id_film']?>"><?= $realisateur_film["titre_film"]." (". $realisateur_film["date_sortie"].")</a> 
-				 "?><br> </span>
-			<?php }}
-			else{ ?>
-				<span class="error">Cet réalisateur n'as produit aucuns films.</span>
-				<?php
-			} ?>
-			</div>
-			</div>
-<?php
+<div class="film-acteur-card-list">
+    <div class="film-acteur-card-detail">
+        <?php if (isset($request_realisateur_infos)) {
+            $realisateur_infos = $request_realisateur_infos->fetch(); ?>
+            <h2><?= $realisateur_infos["prenom"] . " " . $realisateur_infos["nom"] ?></h2>
 
+            <p class="row-count-list">
+                Ce réalisateur a réalisé un total de : <?= $request_realisateur_list_films->rowCount() ?> film<?= ($request_realisateur_list_films->rowCount() > 1) ? "s" : "" ?>
+            </p>
+            <span>Né le : <?= $realisateur_infos["birthdate"] ?></span>
+
+            <span>
+                Film<?= ($request_realisateur_list_films->rowCount() > 1) ? "s" : "" ?> réalisé<?= ($request_realisateur_list_films->rowCount() > 1) ? "s" : "" ?> :
+            </span>
+        <?php } ?>
+
+        <?php if ($request_realisateur_list_films->rowCount() > 0) { ?>
+            <div class="film-acteur-card-horizontal">
+                <?php foreach ($request_realisateur_list_films->fetchAll() as $realisateur_film) { ?>
+                    <div class="film-container">
+                        <a href="index.php?action=infosFilm&id=<?= $realisateur_film['id_film'] ?>">
+                            <div class="film-acteur-card">
+                                <!-- IMAGE -->
+                                <?php 
+                                $imagePath = "public/images/imgFilms/";
+                                $imageFilename = $realisateur_film["path_img_film"];
+                                $imageUrl = $imagePath . $imageFilename;
+                                ?>
+                                <img class="image-acteur-film" src="<?= $imageUrl ?>" alt="affiche du film <?= $realisateur_film['titre_film'] ?>">
+                                <div class="film-info">
+                                    <span class="film-title"><?= $realisateur_film['titre_film'] ?></span>
+                                    <span class="film-date">Date : <?= $realisateur_film['date_sortie'] ?></span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } else { ?>
+            <span class="error">Ce réalisateur n'a réalisé aucun film.</span>
+        <?php } ?>
+    </div>
+</div>
+
+<?php
 $content = ob_get_clean();
 require "view/template.php";
+?>

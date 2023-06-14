@@ -24,18 +24,18 @@ class RealisateursController {
 		$pdo = Connect::connectToDb();
 
 		$request_realisateur_infos = $pdo->prepare("
-			SELECT DISTINCT d.id_realisateur, d.prenom, d.nom, d.birthdate
-			FROM realisateur d
-			WHERE d.id_realisateur = :id_realisateur
+			SELECT DISTINCT r.id_realisateur, r.prenom, r.nom, r.birthdate
+			FROM realisateur r
+			WHERE r.id_realisateur = :id_realisateur
 		");
 
 		$request_realisateur_infos->execute(["id_realisateur" =>$id_realisateur]);
 
 		$request_realisateur_list_films = $pdo->prepare("
-			SELECT m.titre_film, m.date_sortie, m.duree, id_film
-			FROM realisateur d
-			INNER JOIN film m ON m.realisateur_id = d.id_realisateur
-			WHERE d.id_realisateur = :id_realisateur
+			SELECT f.titre_film, f.date_sortie, f.duree, f.path_img_film, id_film
+			FROM realisateur r
+			INNER JOIN film f ON f.realisateur_id = r.id_realisateur
+			WHERE r.id_realisateur = :id_realisateur
 		");
 
 		$request_realisateur_list_films->execute(["id_realisateur" => $id_realisateur]);
