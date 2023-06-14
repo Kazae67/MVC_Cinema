@@ -1,12 +1,12 @@
 /* NAVBAR */
 nav{
-    display: flex;
-    align-items:flex-end;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 5%;
-    padding-right: 55%;
-    background-color: #bfbfbf;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 10%;
+  background-color: #bfbfbf;
   }
   nav h2{
   margin-bottom: 22px;
