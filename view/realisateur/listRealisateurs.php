@@ -5,7 +5,7 @@
 
 <div class="realisateur-card-list">
     <table>
-        <?php foreach ($request->fetchAll() as $realisateur) { ?>
+        <?php while ($realisateur = $request->fetch()): ?>
             <tr>
                 <td>
                     <div class="realisateur-card-person">
@@ -15,9 +15,18 @@
                             <span><?= $realisateur["sexe"] ?></span>
                         </a>
                     </div>
+                    <!-- IMAGE -->
+                    <?php 
+                    $imagePath = "public/images/imgRealisateurs/";
+                    $imageFilename = $realisateur["path_img_realisateur"];
+                    $imageUrl = $imagePath . $imageFilename;
+                    ?>
+                    <a href="index.php?action=infosRealisateur&id=<?= $realisateur["id_realisateur"] ?>">
+                        <img class="image-realisateur" src="<?= $imageUrl ?>" alt="photo du réalisateur <?= ucfirst($realisateur["nom"]) . " " . ucfirst($realisateur["prenom"]) ?>">
+                    </a>
                 </td>
             </tr>
-        <?php } ?>
+        <?php endwhile; ?>
     </table>
 </div>
 

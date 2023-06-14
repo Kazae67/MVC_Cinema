@@ -10,7 +10,7 @@ class RealisateursController {
 	{
 		$pdo = Connect::connectToDb();
 		$request = $pdo->query("
-        SELECT prenom, nom, sexe, birthdate, id_realisateur
+        SELECT prenom, nom, sexe, birthdate, id_realisateur, path_img_realisateur
         FROM realisateur
         ");
 
@@ -24,7 +24,7 @@ class RealisateursController {
 		$pdo = Connect::connectToDb();
 
 		$request_realisateur_infos = $pdo->prepare("
-			SELECT DISTINCT r.id_realisateur, r.prenom, r.nom, r.birthdate
+			SELECT DISTINCT r.id_realisateur, r.prenom, r.nom, r.birthdate, r.path_img_realisateur
 			FROM realisateur r
 			WHERE r.id_realisateur = :id_realisateur
 		");
