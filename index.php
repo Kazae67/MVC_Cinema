@@ -40,6 +40,9 @@ if (isset($_GET["action"])) {
         case "listRoles":
             $RolesController->listRoles();
             break;
+        case "infosRole":
+            $RolesController->infosRole($id);
+            break;
     }
 } else {
     $FilmsController->listFilms();

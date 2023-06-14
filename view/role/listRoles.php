@@ -1,20 +1,26 @@
-
 <?php
+ob_start();
 
-    ob_start();
-    ?>
-    <p class="row-count-list"> Nous possédons un total de <?= $request->rowCount() ?> roles</p>
+// LISTE DE RÔLES + INFOS
+?>
+<!-- TOTAL RÔLES -->
+<?php $liste = "Les rôles disponibles" . (($request->rowCount() > 1) ? "s" : ""); ?>
+<p class="row-count-list">Un total de <?= $request->rowCount() ?> rôle<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
-<div class="film-card-list">
-    <?php foreach ($request->fetchAll() as $role) { ?>
-        <div class="film-card">
-            <span><?= $role["role_name"] ?></span>
+<!-- LISTE DES RÔLES -->
+<div class="role-card-list">
+<?php foreach ($request->fetchAll() as $role): ?>
+    <a href="index.php?action=infosRole&id=<?= $role["id_role"] ?>">
+        <div class="role-card">
+            <div class="role-card-infos">
+                <span><?= "Nom : ".$role["role_name"] ?></span>
+            </div>
         </div>
-    <?php } ?>
+    </a>
+<?php endforeach; ?>
 </div>
+
 <?php
-
 $content = ob_get_clean();
-
-
-require "view/template.php"; ?>
+require "view/template.php";
+?>

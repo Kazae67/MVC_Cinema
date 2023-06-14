@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="public/css/navbar.css">
     <!-- STANDARD -->
     <link rel="stylesheet" href="public/css/standard.css">
-    <!-- STYLE (TESTING) -->
-    <link rel="stylesheet" href="public/css/style.css">
 
     <title>Cinema</title>
 </head>
