@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="public/css/realisateur/listRealisateurs.css">
     <link rel="stylesheet" href="public/css/realisateur/infosRealisateur.css">
     <!-- GENRES -->
-    <link rel="stylesheet" href="public/css/realisateur/listGenres.css">
-    <link rel="stylesheet" href="public/css/realisateur/infosGenre.css">
+    <link rel="stylesheet" href="public/css/genre/listGenres.css">
+    <link rel="stylesheet" href="public/css/genre/infosGenre.css">
     <!-- NAVBAR -->
     <link rel="stylesheet" href="public/css/navbar.css">
     <!-- STANDARD -->

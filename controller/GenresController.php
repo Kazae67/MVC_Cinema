@@ -11,7 +11,7 @@ class GenresController {
 	$pdo = Connect::connectToDb();
 
 	$request = $pdo->query("
-    SELECT genre_name, id_genre
+    SELECT genre_name, id_genre, path_img_genre
     FROM genre 
     ");
 
