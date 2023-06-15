@@ -4,6 +4,7 @@ use Controller\FilmsController;
 use Controller\ActeursController;
 use Controller\RolesController;
 use Controller\RealisateursController;
+use Controller\GenresController;
 
 /* AUTO LOAD */
 spl_autoload_register(function ($class_name) {
@@ -14,6 +15,7 @@ $FilmsController = new FilmsController();
 $ActeursController = new ActeursController();
 $RolesController = new RolesController();
 $RealisateursController = new RealisateursController();
+$GenresController = new GenresController();
 
 /* FILTER */
 if (isset($_GET["id"])) {
@@ -39,9 +41,11 @@ if (isset($_GET["action"])) {
         case "infosActeur":
             $ActeursController->infosActeur($id);
             break;
+        /* Liste des ROLE */
         case "listRoles":
             $RolesController->listRoles();
             break;
+        /* Infos du ROLE */
         case "infosRole":
             $RolesController->infosRole($id);
             break;
@@ -49,8 +53,18 @@ if (isset($_GET["action"])) {
         case "listRealisateurs":
             $RealisateursController->listRealisateurs();
             break;
+        /* Infos du REALISATEUR */
         case "infosRealisateur":
             $RealisateursController->infosRealisateur($id);
+            break;
+        /* Liste des GENRES */
+        case "listGenres":
+            $GenresController->listGenres();
+            break;
+        /* Infos du GENRE */
+        case "infosGenre":
+            $GenresController->infosGenre();
+            break;
     }
 } else {
     $FilmsController->listFilms();

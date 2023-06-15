@@ -16,9 +16,12 @@
     <!-- ROLES -->
     <link rel="stylesheet" href="public/css/role/listRoles.css">
     <link rel="stylesheet" href="public/css/role/infoRole.css">
-    <!-- REALISATEUR -->
+    <!-- REALISATEURS -->
     <link rel="stylesheet" href="public/css/realisateur/listRealisateurs.css">
     <link rel="stylesheet" href="public/css/realisateur/infosRealisateur.css">
+    <!-- GENRES -->
+    <link rel="stylesheet" href="public/css/realisateur/listGenres.css">
+    <link rel="stylesheet" href="public/css/realisateur/infosGenre.css">
     <!-- NAVBAR -->
     <link rel="stylesheet" href="public/css/navbar.css">
     <!-- STANDARD -->
