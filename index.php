@@ -63,7 +63,7 @@ if (isset($_GET["action"])) {
             break;
         /* Infos du GENRE */
         case "infosGenre":
-            $GenresController->infosGenre();
+            $GenresController->infosGenre($id);
             break;
     }
 } else {
