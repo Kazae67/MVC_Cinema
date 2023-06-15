@@ -1,7 +1,9 @@
 <?php
 ob_start();
 ?>
-<?php $liste = "Les acteurs disponibles" . (($request->rowCount() > 1) ? "s" : ""); ?>
+<?php 
+$liste = "Les acteurs disponibles" . (($request->rowCount() > 1) ? "s" : ""); 
+?>
 <p class="row-count-list">Un total de <?= $request->rowCount() ?> acteur<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
 <div class="acteur-card-list">
