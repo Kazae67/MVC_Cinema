@@ -12,7 +12,7 @@ class RolesController {
         $pdo = Connect::connectToDb();
         
         $request = $pdo->query("
-            SELECT id_role, role_name
+            SELECT id_role, role_name, path_img_role
             FROM role
         ");
 

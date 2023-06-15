@@ -1,8 +1,7 @@
-<?php
-ob_start();
 
-// LISTE DE RÔLES + INFOS
-?>
+<?php ob_start(); ?>
+
+
 <!-- TOTAL RÔLES -->
 <?php $liste = "Les rôles disponible" . (($request->rowCount() > 1) ? "s" : ""); ?>
 <p class="row-count-list">Un total de <?= $request->rowCount() ?> rôle<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
@@ -16,6 +15,15 @@ ob_start();
                 <span><?= "Nom : ".$role["role_name"] ?></span>
             </div>
         </div>
+        <!-- IMAGE -->
+        <?php
+        $imagePath = "public/images/imgRoles/";
+        $imageFileName = $role["path_img_role"];
+        $imageUrl = $imagePath . $imageFileName;
+        var_dump($role);
+
+        ?>
+        <img class="image-role" src="<?= $imageUrl ?>" alt="photo du role <?= ucfirst($role["role_name"]) ?>">
     </a>
 <?php endforeach; ?>
 </div>
