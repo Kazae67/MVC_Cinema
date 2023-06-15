@@ -31,7 +31,7 @@ ob_start();
                                 ?>
                                 <img class="image-acteur-film" src="<?= $imageUrl ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
                                 <div class="film-info">
-                                    <span class="film-title"><?= $acteur_film['titre_film'] ?></span>
+                                    <h3 span class="film-title"><?= $acteur_film['titre_film'] ?></span></h3>
                                     <span class="film-role">Rôle : <?= $acteur_film['role_name'] ?></span>
                                     <span class="film-date">Date : <?= $acteur_film['date_sortie'] ?></span>
                                 </div>

@@ -1,0 +1,67 @@
+/* images miniatures */
+.image-genre-film {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* informations du film */
+.film-genre-card-detail h3 {
+    
+}
+
+.film-genre-card-detail p {
+    margin-bottom: 5px;
+}
+
+.film-genre-card-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.film-genre-container {
+    background-color: white;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 250px;
+    border-radius: 20px;
+    transition: transform 0.3s ease; 
+}
+
+.film-genre-container:hover {
+    transform: scale(1.1);
+}
+
+.film-genre-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.film-genre-card a {
+    display: block;
+    height: 70%;
+    overflow: hidden;
+}
+
+.film-genre-info {
+    padding: 10px;
+}
+
+.film-genre-title {
+    font-weight: bold;
+    margin-bottom:10px;
+}
+
+.film-genre-role,
+.film-genre-date,
+.film-genre-duree {
+    font-style: italic;
+}
+
+/* message d'erreur */
+.error {
+    color: red;
+    font-weight: bold;
+}
