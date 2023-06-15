@@ -22,9 +22,6 @@ ob_start();
                     <?php if ($role && isset($role["titre_film"])): ?>
                         <span><b>Film :</b> <?= $role["titre_film"] ?></span>
                     <?php endif; ?>
-                    <?php
-                    var_dump(["films"]);
-                    ?>
                 </div>
             </div>
         </div>
