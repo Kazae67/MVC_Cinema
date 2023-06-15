@@ -35,7 +35,7 @@ $imageSrc = $imagePath . $film["path_img_film"];
                         <?php
                         $minutes = $film["duree"];
                         $duree = date('H:i', mktime(0, $minutes));
-                        echo $duree;
+                        echo $duree." mins";
                         ?>
                     </span>
                     <span><b>Genre :</b> <?= ucfirst($film["genre_name"]) ?></span>

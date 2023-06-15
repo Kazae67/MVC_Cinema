@@ -24,9 +24,14 @@
                             ?>
                             <img class="image-genre-film" src="<?= $imageUrl ?>" alt="affiche du film <?= $genre_list_films['titre_film'] ?>">
                             <div class="film-genre-info">
-                                <h3 class="film-genre-title"><?= $genre_list_films['titre_film'] ?></h3>
+                                <h2 class="film-genre-title"><?= $genre_list_films['titre_film'] ?></h2>
                                 <p class="film-genre-date">Date : <?= $genre_list_films['date_sortie'] ?></p>
-                                <p class="film-genre-duree">Durée: <?= $genre_list_films["duree"] ?></p>
+                                <?php
+                                $minutes = $genre_list_films["duree"];
+                                $heures = floor($minutes / 60);
+                                $minutes_restantes = $minutes % 60;
+                                ?>
+                                <p class="film-genre-duree">Durée: <?= $heures . "h" . $minutes_restantes . " mins" ?></p>
                             </div>
                         </div>
                     </a>
