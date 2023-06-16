@@ -38,7 +38,7 @@ class FilmsController {
         $request_film->execute(["id_film" => $id_film]);
 
         $query_casting = "
-            SELECT prenom, nom, role_name, a.id_acteur
+            SELECT prenom, nom, role_name, a.id_acteur, r.id_role
             FROM acteur a
             INNER JOIN casting c ON c.acteur_id = a.id_acteur
             INNER JOIN role r ON r.id_role = c.role_id
