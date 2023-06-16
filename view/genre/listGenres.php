@@ -29,5 +29,6 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
+$cssLink = '<link rel="stylesheet" href="public/css/genre/listGenres.css">';
 require "view/template.php";
 ?>

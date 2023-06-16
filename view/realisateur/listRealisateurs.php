@@ -2,7 +2,7 @@
 
 <?php
 ?>
-<?php $liste = "Nombre de réalisateur".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
+<?php $liste = "Nombre de Réalisateur".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
 <p class="row-count-list"> Un total de <?= $request->rowCount() ?> réalisateur<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
 <div class="realisateur-card-list">
@@ -28,5 +28,6 @@
 
 <?php
 $content = ob_get_clean();
+$cssLink = '<link rel="stylesheet" href="public/css/realisateur/listRealisateurs.css">';
 require "view/template.php";
 ?>

@@ -28,5 +28,6 @@ ob_start();
 <?php
 
 $content = ob_get_clean();
+$cssLink = '<link rel="stylesheet" href="public/css/casting/listCastings.css">';
 
 require "view/template.php";

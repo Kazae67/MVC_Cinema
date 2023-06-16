@@ -49,4 +49,5 @@
 <?php } ?>
 
 <?php $content = ob_get_clean(); ?>
+<?php $cssLink = '<link rel="stylesheet" href="public/css/genre/infosGenre.css">'; ?>
 <?php require "view/template.php"; ?>

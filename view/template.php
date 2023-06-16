@@ -6,22 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a45e9c27c8.js" crossorigin="anonymous"></script>
-    <!-- FILMS -->
-    <link rel="stylesheet" href="public/css/film/infosFilm.css">
+    <!-- LOAD UNIQUE -->
+    <?= $cssLink ?>
+    <!-- CONDITION ÉTOILES -->
     <link rel="stylesheet" href="public/css/film/etoiles.css">
-    <link rel="stylesheet" href="public/css/film/listFilms.css">
-    <!-- ACTEURS -->
-    <link rel="stylesheet" href="public/css/acteur/listActeurs.css">
-    <link rel="stylesheet" href="public/css/acteur/infosActeur.css">
-    <!-- ROLES -->
-    <link rel="stylesheet" href="public/css/role/listRoles.css">
-    <link rel="stylesheet" href="public/css/role/infoRole.css">
-    <!-- REALISATEURS -->
-    <link rel="stylesheet" href="public/css/realisateur/listRealisateurs.css">
-    <link rel="stylesheet" href="public/css/realisateur/infosRealisateur.css">
-    <!-- GENRES -->
-    <link rel="stylesheet" href="public/css/genre/listGenres.css">
-    <link rel="stylesheet" href="public/css/genre/infosGenre.css">
     <!-- NAVBAR -->
     <link rel="stylesheet" href="public/css/navbar.css">
     <!-- STANDARD -->

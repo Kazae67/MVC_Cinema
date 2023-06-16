@@ -28,6 +28,7 @@ ob_start();
 </div>
 
 <?php
+$cssLink ='<link rel="stylesheet" href="public/css/acteur/listActeurs.css">';
 $content = ob_get_clean();
 require "view/template.php";
 ?>
