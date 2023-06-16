@@ -1,8 +1,9 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; 
     height: 100vh;
+    margin-top: 50px;
 }
 
 .container .content {
@@ -10,7 +11,7 @@
     border: 1px solid #ccc;
     border-radius: 20px;
     width: 100%;
-    max-width: 1000px; /* Utilisez une largeur maximale pour éviter que le contenu ne devienne trop étiré sur des écrans larges */
+    max-width: 1000px; 
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -20,10 +21,10 @@
     line-height: 1.5;
     padding: 10px;
     width: 100%;
-    max-width: 1000px; /* Utilisez une largeur maximale pour éviter que le contenu ne devienne trop étiré sur des écrans larges */
-    margin: 0 auto; /* Centrez horizontalement le contenu */
+    max-width: 1000px;
+    margin: 0 auto; 
     margin-left:5px;
-    box-sizing: border-box; /* Inclure les bordures et le padding dans la largeur totale */
+    box-sizing: border-box; 
 }
 
 .role-card-detail span {
@@ -34,11 +35,11 @@
 .film-list {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10px; /* Ajoutez un peu d'espace entre la description et la liste de films */
+    margin-top: 10px;
 }
 
 .film-item {
-    flex-basis: calc(33.33% - 10px); /* Affichez trois éléments par ligne avec un espace de 10px entre eux */
+    flex-basis: calc(33.33% - 10px); 
     margin-right: 10px;
     margin-bottom: 10px;
 }
