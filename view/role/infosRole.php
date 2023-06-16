@@ -9,8 +9,13 @@ $imagePath = 'public/images/imgFilms/';
         <div class="role-card-list">
             <div class="role-card-infos">
                 <div class="role-card-detail">
+                    
                     <?php if ($acteur && isset($acteur["prenom"]) && isset($acteur["nom"])): ?>
-                        <span class="film-info"><b>Acteur :</b> <?= $acteur["prenom"] . " " . $acteur["nom"] ?></span>
+                        <span class="film-info"><b>Acteur :</b> 
+                            <a href="index.php?action=infosActeur&id=<?= $acteur['id_acteur'] ?>">
+                                <?= $acteur["prenom"] . " " . $acteur["nom"] ?>
+                            </a>
+                        </span>
                     <?php else: ?>
                         <span class="film-info"><b>Acteur :</b> Aucun acteur trouvé</span>
                     <?php endif; ?>
@@ -25,7 +30,9 @@ $imagePath = 'public/images/imgFilms/';
                             <?php foreach ($films as $film): ?>
                                 <div class="film-item">
                                     <div class="film-container">
-                                        <img src="<?= $imagePath . $film['path_img_film'] ?>" alt="<?= $film['titre_film'] ?>" class="film-image">
+                                        <a href="index.php?action=infosFilm&id=<?= $film['id_film'] ?>">
+                                            <img src="<?= $imagePath . $film['path_img_film'] ?>" alt="<?= $film['titre_film'] ?>" class="film-image">
+                                        </a>
                                         <span class="film-title"><?= $film['titre_film'] ?></span>
                                     </div>
                                 </div>

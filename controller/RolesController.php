@@ -35,7 +35,7 @@ class RolesController {
         $role = $request_role->fetch();
 
         $query_acteur = "
-            SELECT a.prenom, a.nom
+            SELECT a.id_acteur, a.prenom, a.nom
             FROM acteur a
             INNER JOIN casting c ON a.id_acteur = c.acteur_id
             WHERE c.role_id = :id
@@ -47,7 +47,7 @@ class RolesController {
 
         // Récupération des informations sur les films du rôle
         $query_films = "
-            SELECT f.titre_film, f.path_img_film
+            SELECT f.titre_film, f.path_img_film, f.id_film
             FROM film f
             INNER JOIN casting c ON f.id_film = c.film_id
             WHERE c.role_id = :id
