@@ -1,15 +1,9 @@
-/* Description */ 
-.image-film-xl {
-    width: 300px;
-    height: auto;
-    border-radius:20px;
-  }
-  
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; 
     height: 100vh;
+    margin-top: 50px;
 }
 
 .container .content {
@@ -28,10 +22,25 @@
 
 .film-card-detail span {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    max-width: 600px;
+    word-wrap: break-word; 
 }
 
 .film-card-detail a {
     color: #0000FF;
     text-decoration: underline;
 }
+
+.image-film-xl {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    max-height: 400px; 
+}
+
+
+
