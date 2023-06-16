@@ -29,7 +29,7 @@ $imageSrc = $imagePath . $film["path_img_film"];
                 </div>
                 <div class="film-info-line">
                     <span class="film-info-left"><b>Réalisateur :</b> <a href="index.php?action=infosRealisateur&id=<?= $film['id_realisateur'] ?>"><?= $film["rea_prenom"] . " " . $film["rea_nom"] ?></a></span>
-                    <span class="film-info-right"><b>Genre :</b> <?= ucfirst($film["genre_name"]) ?></span>
+                    <span class="film-info-right"><b>Genre :</b> <a href="index.php?action=infosGenre&id=<?= $film['genre_id'] ?>"><?= ucfirst($film["genre_name"]) ?></a></span>
                 </div>
                 <div class="film-info-line">
                     <span class="film-info-left"><b>Date de sortie :</b> <?= $film["date_sortie"] ?></span>
@@ -59,7 +59,7 @@ $imageSrc = $imagePath . $film["path_img_film"];
                                 <li>
                                     <a href="index.php?action=infosActeur&id=<?= $casting['id_acteur'] ?>">
                                         <?= $casting["prenom"] . " " . $casting["nom"] ?>
-                                    </a> dans le rôle de 
+                                    </a> dans le rôle de
                                     <a href="index.php?action=infosRole&id=<?= $casting['id_role'] ?>">
                                         <?= $casting["role_name"] ?>
                                     </a>
