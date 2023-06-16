@@ -1,9 +1,9 @@
 
 <?php ob_start(); ?>
 
-<!-- TOTAL RÔLES -->
-<?php $liste = "Les rôles disponible" . (($request->rowCount() > 1) ? "s" : ""); ?>
-<p class="row-count-list">Un total de <?= $request->rowCount() ?> rôle<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
+
+<?php $liste = "Nombre de Rôle".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
+<p class="row-count-list"> Un total de <?= $request->rowCount() ?> rôle<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
 <!-- LISTE DES RÔLES -->
 <div class="role-card-list">

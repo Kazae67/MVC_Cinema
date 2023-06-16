@@ -1,9 +1,9 @@
 <?php ob_start(); ?>
 
 <?php
-$liste = "Les réalisateurs disponibles" . (($request->rowCount() > 1) ? "s" : "");
 ?>
-<p class="row-count-list">Un total de <?= $request->rowCount() ?> réalisateur<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
+<?php $liste = "Nombre de réalisateur".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
+<p class="row-count-list"> Un total de <?= $request->rowCount() ?> réalisateur<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
 <div class="realisateur-card-list">
     <?php while ($realisateur = $request->fetch()): ?>

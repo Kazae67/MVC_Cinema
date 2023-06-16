@@ -6,9 +6,8 @@ $imagePath = 'public/images/imgFilms/';
 
 // LISTE DE FILMS + INFOS
 ?>
-<!-- TOTAL FILMS -->
-<?php $liste = "Les films disponibles" . (($request->rowCount() > 1) ? "s" : ""); ?>
-<p class="row-count-list">Un total de <?= $request->rowCount() ?> film<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
+<?php $liste = "Nombre de Film".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
+<p class="row-count-list"> Un total de <?= $request->rowCount() ?> film<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
 <!-- LISTE DES FILMS -->
 <div class="film-card-list">

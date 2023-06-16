@@ -2,10 +2,9 @@
 ob_start();
 ?>
 
-<?php
-$liste = "Les genres disponibles" . (($request->rowCount() > 1) ? "s" : "");
-?>
-<p class="row-count-list">Un total de <?= $request->rowCount() ?> genre<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
+
+<?php $liste = "Nombre de Genre".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
+<p class="row-count-list"> Un total de <?= $request->rowCount() ?> genre<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
 <div class="genre-card-list">
     <?php foreach ($request->fetchAll() as $genre) { ?>
