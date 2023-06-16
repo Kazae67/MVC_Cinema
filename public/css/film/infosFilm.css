@@ -8,10 +8,10 @@
 
 .container .content {
     background-color: #fff;
-    border: 1px solid #ccc;
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border:solid 3px black;
 }
 
 .film-card-detail {
@@ -37,14 +37,14 @@
 .film-info-left {
     flex: 1;
     text-align: left;
-    padding-left: 50px; /* Ajustez la valeur selon vos besoins */
+    padding-left: 50px;
     
 }
 
 .film-info-right {
     flex: 1;
     text-align: left;
-    padding-left: 50px; /* Ajustez la valeur selon vos besoins */
+    padding-left: 50px; 
 }
 
 .film-info-bottom {
@@ -66,11 +66,11 @@
 
 .image-film-xl {
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
     height: auto;
-    border-radius: 20px;
-    border: 4px solid #000000;
-    max-height: 400px;
+    border-radius: 10px;
+    border: 3px solid #000000;
+    max-height: 450px;
 }
 
 .casting-info {
@@ -82,5 +82,5 @@
     padding-left: 0;
 }
 .casting-list li {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
