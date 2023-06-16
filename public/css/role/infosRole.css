@@ -9,19 +9,22 @@
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 20px;
-    width:995px;
-    padding: 20px;
+    width: 100%;
+    max-width: 1000px; /* Utilisez une largeur maximale pour éviter que le contenu ne devienne trop étiré sur des écrans larges */
+    padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
 }
 
 .role-card-detail {
     font-size: 16px;
     line-height: 1.5;
     padding: 10px;
-    width:1000px;
+    width: 100%;
+    max-width: 1000px; /* Utilisez une largeur maximale pour éviter que le contenu ne devienne trop étiré sur des écrans larges */
+    margin: 0 auto; /* Centrez horizontalement le contenu */
+    margin-left:5px;
+    box-sizing: border-box; /* Inclure les bordures et le padding dans la largeur totale */
 }
-
 
 .role-card-detail span {
     display: block;
@@ -31,66 +34,60 @@
 .film-list {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 10px; /* Ajoutez un peu d'espace entre la description et la liste de films */
 }
 
 .film-item {
-    display: inline-block;
+    flex-basis: calc(33.33% - 10px); /* Affichez trois éléments par ligne avec un espace de 10px entre eux */
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .film-container {
-    position: relative; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
     text-align: center;
-    height:305px;
-    width: 203.5px;
-    margin-bottom: 10px;
-    margin-right:30px;
-    padding: 0px;
+    height: 305px;
+    width: 100%;
     background-color: #fff;
     border: 3px solid #000000;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .film-image {
-    width: 200px;
-    height: 300px; 
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 3px 3px 3px 3px;;
-    margin-right: -0px;
-    margin-bottom:0px;
+    border-radius: 7px;
 }
 
 .film-info {
     margin-right: 5px;
-    width:920px;
+    width: 100%;
 }
 
 .film-title {
     position: absolute;
-    color: transparent; 
+    color: transparent;
     left: 0;
     width: 0%;
     padding: 8px;
-    border-radius:5px 5px 50px 50px;
-    background-color: rgba(0, 0, 0, 0); 
+    border-radius: 5px 5px 50px 50px;
+    background-color: rgba(0, 0, 0, 0);
     font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    transition: transform 0.3s ease, background-color 0.1s ease, color 0.8s ease, box-shadow 1.5s ease, border-radius 1s ease, width 1s ease; 
-    transform: translateY(0%);
-    z-index: 1; 
+    transition: transform 0.3s ease, background-color 0.1s ease, color 0.8s ease, box-shadow 1.5s ease, border-radius 1s ease, width 1s ease;
+    transform: translateY(-770%);
+    z-index: 1;
 }
 
 .film-container:hover .film-title {
-    transform: translateY(700%); 
+    transform: translateY(-100%);
     width: 100%;
-    color: rgb(0, 0, 0); 
-    background-color: rgb(255, 255, 255); 
-    border-radius:5px 5px 5px 5px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
     box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.6);
-    z-index:1;
+    z-index: 1;
 }
