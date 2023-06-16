@@ -29,14 +29,22 @@
     word-wrap: break-word;
 }
 
+.film-info {
+    display: flex;
+    justify-content: space-between;
+}
+
 .film-info-left {
     flex: 1;
     text-align: left;
+    padding-left: 50px; /* Ajustez la valeur selon vos besoins */
+    
 }
 
 .film-info-right {
     flex: 1;
-    text-align: right;
+    text-align: left;
+    padding-left: 50px; /* Ajustez la valeur selon vos besoins */
 }
 
 .film-info-bottom {
