@@ -1,0 +1,86 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container .content {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.role-card-detail {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
+}
+
+.role-card-detail span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.film-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.film-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.film-container {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 203.5px;
+    margin-bottom: 10px;
+    margin-right:30px;
+    padding: 0px;
+    background-color: #fff;
+    border: 3px solid #000000;
+    border-radius: 5px;
+}
+
+.film-image {
+    width: 200px;
+    height: 300px; 
+    object-fit: cover;
+    border-radius: 3px 3px 3px 3px;;
+    margin-right: -0px;
+    margin-bottom:0px;
+}
+
+.film-info {
+    margin-right: 5px;
+}
+
+.film-title {
+    position: absolute;
+    color: transparent; 
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    border-radius: 0px 0px 5px 5px;
+    background-color: rgba(0, 0, 0, 0); 
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: transform 0.3s ease, background-color 1s ease, color 0.8s ease; 
+    transform: translateY(0%);
+    z-index: 1; 
+}
+
+.film-container:hover .film-title {
+    transform: translateY(750%); 
+    color: white; 
+    background-color: rgba(0, 0, 0, 0.712); 
+}

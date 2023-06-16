@@ -45,6 +45,18 @@ class RolesController {
         $request_acteur->execute(["id" => $id]);
         $acteur = $request_acteur->fetch();
 
+        // Récupération des informations sur les films du rôle
+        $query_films = "
+            SELECT f.titre_film, f.path_img_film
+            FROM film f
+            INNER JOIN casting c ON f.id_film = c.film_id
+            WHERE c.role_id = :id
+        ";
+
+        $request_films = $pdo->prepare($query_films);
+        $request_films->execute(["id" => $id]);
+        $films = $request_films->fetchAll();
+
         require "view/role/infosRole.php";
     }
 }

@@ -1,5 +1,7 @@
 <?php
 ob_start();
+
+$imagePath = 'public/images/imgFilms/';
 ?>
 
 <div class="container">
@@ -8,18 +10,31 @@ ob_start();
             <div class="role-card-infos">
                 <div class="role-card-detail">
                     <?php if ($acteur && isset($acteur["prenom"]) && isset($acteur["nom"])): ?>
-                        <span><b>Acteur :</b> <?= $acteur["prenom"] . " " . $acteur["nom"] ?></span>
+                        <span class="film-info"><b>Acteur :</b> <?= $acteur["prenom"] . " " . $acteur["nom"] ?></span>
                     <?php else: ?>
-                        <span><b>Acteur :</b> Aucun acteur trouvé</span>
+                        <span class="film-info"><b>Acteur :</b> Aucun acteur trouvé</span>
                     <?php endif; ?>
+
                     <?php if ($role && isset($role["description"])): ?>
-                        <span><b>Description :</b> <?= $role["description"] ?></span>
+                        <span class="film-info"><b>Description :</b> <?= $role["description"] ?></span>
                     <?php endif; ?>
+
                     <?php if ($role && isset($role["films"])): ?>
-                        <span><b>Films :</b> <?= $role["films"] ?></span>
+                        <span><b>Films :</b></span>
+                        <div class="film-list">
+                            <?php foreach ($films as $film): ?>
+                                <div class="film-item">
+                                    <div class="film-container">
+                                        <img src="<?= $imagePath . $film['path_img_film'] ?>" alt="<?= $film['titre_film'] ?>" class="film-image">
+                                        <span class="film-title"><?= $film['titre_film'] ?></span>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     <?php endif; ?>
+
                     <?php if ($role && isset($role["titre_film"])): ?>
-                        <span><b>Film :</b> <?= $role["titre_film"] ?></span>
+                        <span class="film-info"><b>Film :</b> <?= $role["titre_film"] ?></span>
                     <?php endif; ?>
                 </div>
             </div>
@@ -29,6 +44,6 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-$cssLink = '<link rel="stylesheet" href="public/css/role/infoRole.css">';
+$cssLink = '<link rel="stylesheet" href="public/css/role/infosRole.css">';
 require "view/template.php";
 ?>
