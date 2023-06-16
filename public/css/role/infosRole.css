@@ -9,6 +9,7 @@
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 20px;
+    width:995px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     
@@ -18,7 +19,9 @@
     font-size: 16px;
     line-height: 1.5;
     padding: 10px;
+    width:1000px;
 }
+
 
 .role-card-detail span {
     display: block;
@@ -62,6 +65,7 @@
 
 .film-info {
     margin-right: 5px;
+    width:920px;
 }
 
 .film-title {
