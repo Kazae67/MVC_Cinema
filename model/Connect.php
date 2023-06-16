@@ -10,7 +10,7 @@ abstract class Connect
     const USER = "root";
     const PASS = "";
 
-    public static function connectToDb()
+    public static function seConnecter()
     {
         try {
             return new \PDO(

@@ -5,9 +5,10 @@ namespace Controller;
 use Model\Connect;
 
 class CastingsController {
-    public function listCastings()
-	{
-		$pdo = Connect::connectToDb();
+
+	// Liste des CASTINGS
+    public function listCastings() {
+		$pdo = Connect::seConnecter();
 		$request = $pdo->query("
 		
 			SELECT prenom, nom, role_name, titre_film, id_film, id_role, id_acteur
