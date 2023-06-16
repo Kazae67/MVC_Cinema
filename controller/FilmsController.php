@@ -27,9 +27,9 @@ class FilmsController {
         $pdo = Connect::connectToDb();
 
         $request_film = $pdo->prepare("
-            SELECT titre_film, date_sortie, duree, synopsis, genre_name, d.prenom AS rea_prenom, d.nom AS rea_nom, note, path_img_film, id_realisateur
+            SELECT titre_film, date_sortie, duree, synopsis, genre_name, rea.prenom AS rea_prenom, rea.nom AS rea_nom, note, path_img_film, id_realisateur
             FROM film f
-            INNER JOIN realisateur d ON f.realisateur_id = d.id_realisateur
+            INNER JOIN realisateur rea ON f.realisateur_id = rea.id_realisateur
             INNER JOIN genre g ON g.id_genre = f.genre_id
             WHERE f.id_film = :id_film
         ");

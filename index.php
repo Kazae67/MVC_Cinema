@@ -69,6 +69,7 @@ if (isset($_GET["action"])) {
             break;
         case "listCastings":
             $CastingsController->listCastings();
+            break;
     }
 } else {
     $FilmsController->listFilms();
