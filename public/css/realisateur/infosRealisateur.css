@@ -80,7 +80,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     transition: transform 0.3s ease, background-color 0.1s ease, color 0.8s ease, box-shadow 1.5s ease, border-radius 1s ease, width 1s ease;
-    transform: translateY(-255%);
+    transform: translateY(-345%);
     z-index: 1;
 }
 
