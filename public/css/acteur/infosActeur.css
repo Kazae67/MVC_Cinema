@@ -80,12 +80,12 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     transition: transform 0.3s ease, background-color 0.1s ease, color 0.8s ease, box-shadow 1.5s ease, border-radius 1s ease, width 1s ease;
-    transform: translateY(-255%);
+    transform: translateY(-262%);
     z-index: 1;
 }
 
 .acteur-card:hover .acteur-title {
-    transform: translateY(-100%);
+    transform: translateY(-105%);
     width: 100%;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
