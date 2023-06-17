@@ -94,10 +94,7 @@
     z-index: 1;
 }
 
-.realisateur-role::before{
-    content: "Rôle : ";
-    visibility: hidden;
-}
+
 
 .realisateur-date::before{
     content: "Date : ";
@@ -109,7 +106,6 @@
     visibility: hidden;
 }
 
-.realisateur-card:hover .realisateur-role::before,
 .realisateur-card:hover .realisateur-date::before,
 .realisateur-card:hover .realisateur-title::before {
     visibility: visible;
@@ -128,7 +124,7 @@
     border: solid 0.1px black;
 }
 
-.realisateur-role-date {
+.realisateur-date {
     display: flex;
     flex-direction: column;
     align-items: center;

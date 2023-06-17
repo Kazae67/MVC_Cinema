@@ -32,9 +32,7 @@ $imagePath = 'public/images/imgFilms/';
                                     <img class="realisateur-image" src="<?= $imagePath . $realisateur_film['path_img_film'] ?>" alt="affiche du film <?= $realisateur_film['titre_film'] ?>">
                                     <div class="realisateur-info">
                                         <h3 class="realisateur-title"><a class="realisateur-link" href="index.php?action=infosFilm&id=<?= $realisateur_film['id_film'] ?>"><?= $realisateur_film['titre_film'] ?></a>
-                                            <?php if(isset($realisateur_film['role_name'])): ?>
-                                                <span class="realisateur-role"><a class="realisateur-link" href="index.php?action=infosRole&id=<?= $realisateur_film['id_role'] ?>"><?= $realisateur_film['role_name'] ?></a></span>
-                                            <?php endif; ?>
+
                                             <span class="realisateur-date"><?= $realisateur_film['date_sortie'] ?></span>
                                         </h3>
                                     </div>
