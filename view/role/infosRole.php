@@ -32,7 +32,7 @@ $imagePath = 'public/images/imgFilms/';
                                         <a href="index.php?action=infosFilm&id=<?= $film['id_film'] ?>">
                                             <img src="<?= $imagePath . $film['path_img_film'] ?>" alt="<?= $film['titre_film'] ?>" class="film-image">
                                         </a>
-                                        <span class="film-title"><?= $film['titre_film'] ?></span>
+                                        <h3><span class="film-title"><?= $film['titre_film'] ?></span></h3>
                                     </div>
                                 </div>
                             <?php endforeach; ?>

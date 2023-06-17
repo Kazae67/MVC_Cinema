@@ -93,14 +93,39 @@
     z-index: 1;
 }
 
-.acteur-role,
-.acteur-date {
+.acteur-role::before{
+    content: "Role : ";
     visibility: hidden;
 }
 
-.acteur-card:hover .acteur-role,
-.acteur-card:hover .acteur-date {
+.acteur-date::before{
+    content: "Date : ";
+    visibility : hidden;
+}
+
+.acteur-title::before {
+    content: "Film : ";
+    visibility: hidden;
+}
+
+.acteur-card:hover .acteur-role::before,
+.acteur-card:hover .acteur-date::before,
+.acteur-card:hover .acteur-title::before {
     visibility: visible;
+}
+
+.acteur-card .film-info:hover {
+    color: red;
+}
+
+.acteur-link {
+    transition: color 0.3s ease, filter 0.3s ease, box-shadow 0.5s ease;
+}
+.acteur-link:hover {
+    color: rgb(65, 161, 240);
+
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+    border: solid 0.1px black;
 }
 
 .acteur-role-date {

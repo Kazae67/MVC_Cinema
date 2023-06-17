@@ -29,12 +29,12 @@ $imagePath = 'public/images/imgFilms/';
                                     <!-- IMAGE -->
                                     <img class="acteur-image" src="<?= $imagePath . $acteur_film['path_img_film'] ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
                                     <div class="acteur-info">
-                                        <h3 class="acteur-title">
-                                            <a href="index.php?action=infosFilm&id=<?= $acteur_film['id_film'] ?>"><?= $acteur_film['titre_film'] ?></a>
+                                        <h3 class="acteur-title"><a class="acteur-link" href="index.php?action=infosFilm&id=<?= $acteur_film['id_film'] ?>"><?= $acteur_film['titre_film'] ?></a>
                                             <?php if(isset($acteur_film['role_name'])): ?>
-                                                <span class="acteur-role"><a href="index.php?action=infosRole&id=<?= $acteur_film['id_role'] ?>">Rôle : <?= $acteur_film['role_name'] ?></a></span>
+                                                <span class="acteur-role"><a class="acteur-link" href="index.php?action=infosRole&id=<?= $acteur_film['id_role'] ?>"><?= $acteur_film['role_name'] ?></a></span>
+
                                             <?php endif; ?>
-                                            <span class="acteur-date">Date : <?= $acteur_film['date_sortie'] ?></span>
+                                            <span class="acteur-date"><?= $acteur_film['date_sortie'] ?></span>
                                         </h3>
                                     </div>
                                 </div>
