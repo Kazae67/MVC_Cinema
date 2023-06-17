@@ -3,43 +3,49 @@ ob_start();
 $imagePath = 'public/images/imgFilms/';
 ?>
 
-<div class="film-acteur-card-list">
-    <div class="film-acteur-card-detail">
-        <?php if (isset($request_acteur_infos)) {
-            $acteur_infos = $request_acteur_infos->fetch(); ?>
-            <h2><?= $acteur_infos["prenom"] . " " . $acteur_infos["nom"] ?></h2>
+<div class="container">
+    <div class="content">
+        <div class="acteur-card-list">
+            <div class="acteur-card-detail">
+                <?php if (isset($request_acteur_infos)) {
+                    $acteur_infos = $request_acteur_infos->fetch(); ?>
+                    <h2><?= $acteur_infos["prenom"] . " " . $acteur_infos["nom"] ?></h2>
 
-            <p class="row-count-list">
-                Cet acteur a joué un total de : <?= $request_acteur_list_films->rowCount() ?> film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?>
-            </p>
-            <span>Né le : <?= $acteur_infos["birthdate"] ?></span>
+                    <p class="acteur-row-count-list">
+                        Cet acteur a joué un total de : <?= $request_acteur_list_films->rowCount() ?> film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?>
+                    </p>
+                    <span>Né le : <?= $acteur_infos["birthdate"] ?></span>
 
-            <span>
-                Film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> joué<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> :
-            </span>
-        <?php } ?>
+                    <span>
+                        Film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> joué<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> :
+                    </span>
+                <?php } ?>
 
-        <?php if ($request_acteur_list_films->rowCount() > 0) { ?>
-            <div class="film-acteur-card-horizontal">
-                <?php foreach ($request_acteur_list_films->fetchAll() as $acteur_film) { ?>
-                    <div class="film-container">
-                        <a href="index.php?action=infosFilm&id=<?= $acteur_film['id_film'] ?>">
-                            <div class="film-acteur-card">
-                                <!-- IMAGE -->
-                                <img class="image-acteur-film" src="<?= $imagePath . $acteur_film['path_img_film'] ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
-                                <div class="film-info">
-                                    <h3 span class="film-title"><?= $acteur_film['titre_film'] ?></span></h3>
-                                    <span class="film-role">Rôle : <?= $acteur_film['role_name'] ?></span>
-                                    <span class="film-date">Date : <?= $acteur_film['date_sortie'] ?></span>
-                                </div>
+                <?php if ($request_acteur_list_films->rowCount() > 0) { ?>
+                    <div class="acteur-card-horizontal">
+                        <?php foreach ($request_acteur_list_films->fetchAll() as $acteur_film) { ?>
+                            <div class="acteur-container">
+                                <a href="index.php?action=infosFilm&id=<?= $acteur_film['id_film'] ?>">
+                                    <div class="acteur-card">
+                                        <!-- IMAGE -->
+                                        <img class="acteur-image" src="<?= $imagePath . $acteur_film['path_img_film'] ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
+                                        <div class="acteur-info">
+                                            <h3 class="acteur-title">
+                                                <?= $acteur_film['titre_film'] ?><br>
+                                                <span class="acteur-role">Rôle : <?= $acteur_film['role_name'] ?></span><br>
+                                                <span class="acteur-date">Date : <?= $acteur_film['date_sortie'] ?></span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+                        <?php } ?>
                     </div>
+                <?php } else { ?>
+                    <span class="error">Cet acteur n'a joué dans aucun film.</span>
                 <?php } ?>
             </div>
-        <?php } else { ?>
-            <span class="error">Cet acteur n'a joué dans aucun film.</span>
-        <?php } ?>
+        </div>
     </div>
 </div>
 
