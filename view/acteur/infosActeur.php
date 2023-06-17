@@ -10,6 +10,10 @@ $imagePath = 'public/images/imgFilms/';
                 $acteur_infos = $request_acteur_infos->fetch(); ?>
                 <h2><?= $acteur_infos["prenom"] . " " . $acteur_infos["nom"] ?></h2>
 
+                <?php if (isset($acteur_infos["biographie"])): ?>
+                    <span class="acteur-info"><b>Biographie :</b> <?= $acteur_infos["biographie"] ?></span>
+                <?php endif; ?>
+
                 <p class="acteur-row-count-list">
                     Cet acteur a joué un total de : <?= $request_acteur_list_films->rowCount() ?> film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?>
                 </p>
