@@ -1,67 +1,87 @@
-/* images miniatures */
-.image-genre-film {
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin-top: 50px;
+  }
+  
+  .container .content {
+    background-color: #fff;
+    border: 3px solid #000000;
+    border-radius: 20px;
     width: 100%;
-    height: 350px;
-    object-fit: cover;
-}
-
-/* informations du film */
-.film-genre-card-detail h3 {
-    
-}
-
-.film-genre-card-detail p {
-    margin-bottom: 5px;
-}
-
-.film-genre-card-horizontal {
+    max-width: 1000px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .film-genre-card-list {
+    margin-top: 10px;
+  }
+  
+  .film-genre-card-horizontal {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-.film-genre-container {
-    background-color: white;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    width: 250px;
-    border-radius: 20px;
-    transition: transform 0.3s ease; 
-}
-
-.film-genre-container:hover {
-    transform: scale(1.1);
-}
-
-.film-genre-card {
+  }
+  
+  .film-genre-container {
+    flex-basis: calc(33.33% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .film-genre-card {
+    position: relative;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    border: 3px solid #000000;
+    border-radius: 10px;
+  }
+  
+  .film-genre-image {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 7px;
+  }
+  
+  .film-genre-info {
+    padding: 10px;
+    text-align: center;
+    height: 30%; 
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-
-.film-genre-card a {
-    display: block;
-    height: 70%;
-    overflow: hidden;
-}
-
-.film-genre-info {
-    padding: 10px;
-}
-
-.film-genre-title {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .film-genre-title {
     font-weight: bold;
-    margin-bottom:10px;
-}
-
-.film-genre-role,
-.film-genre-date,
-.film-genre-duree {
+    margin-bottom: 10px;
+  }
+  
+  .film-genre-date,
+  .film-genre-duree {
     font-style: italic;
-}
-
-/* message d'erreur */
-.error {
+  }
+  
+  .error {
     color: red;
     font-weight: bold;
-}
+  }
+  
+  @media screen and (max-width: 767px) {
+    .film-genre-container {
+      flex-basis: calc(50% - 10px);
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .film-genre-container {
+      flex-basis: 100%;
+    }
+  }
+  
