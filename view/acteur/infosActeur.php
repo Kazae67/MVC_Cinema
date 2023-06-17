@@ -18,7 +18,7 @@ $imagePath = 'public/images/imgFilms/';
                 <?php endif; ?>
 
                 <span>
-                    Film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> joué<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> :
+                    <b>Film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> joué<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> :</b>
                 </span>
             <?php } ?>
 
