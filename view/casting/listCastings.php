@@ -3,14 +3,15 @@ ob_start();
 $imagePathFilm = 'public/images/imgFilms/';
 $imagePathActeur = 'public/images/imgActeurs/';
 $imagePathRole = 'public/images/imgRoles/';
+
+$liste = "Nombre de Casting" . ($request->rowCount() > 1 ? "s" : "") . " disponible" . ($request->rowCount() > 1 ? "s" : "");
+$rowCountText = "Un total de " . $request->rowCount() . " casting" . ($request->rowCount() > 1 ? "s" : "") . " disponible" . ($request->rowCount() > 1 ? "s" : "");
 ?>
 
-<?php $liste = "Nombre de Casting".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
-<p class="row-count-list"> Un total de <?= $request->rowCount() ?> casting<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
+<p class="row-count-list"><?= $rowCountText ?></p>
 
 <div class="film-card-list">
-    <?php
-    foreach ($request->fetchAll() as $casting) { ?>
+    <?php foreach ($request->fetchAll() as $casting) { ?>
         <div class="casting-container">
             <div class="casting-images-container">
                 <?php if (!empty($casting["prenom"])) { ?>
@@ -31,7 +32,8 @@ $imagePathRole = 'public/images/imgRoles/';
             </div>
             <div class="casting-info">
                 <?php if (!empty($casting["prenom"])) { ?>
-                    <span>Prénom : <a href="index.php?action=infosActeur&id=<?= $casting['id_acteur'] ?>"><?= $casting["prenom"] ?></a></span>
+                    <span>Acteur : <a href="index.php?action=infosActeur&id=<?= $casting['id_acteur'] ?>">
+                        <?= $casting["prenom"] ?> <?= $casting["nom"] ?></a></span>
                 <?php } ?>
                 <?php if (!empty($casting["role_name"])) { ?>
                     <span>Rôle : <a href="index.php?action=infosRole&id=<?= $casting['id_role'] ?>"><?= $casting["role_name"] ?></a></span>
@@ -45,8 +47,6 @@ $imagePathRole = 'public/images/imgRoles/';
 </div>
 
 <?php
-
 $content = ob_get_clean();
 $cssLink = '<link rel="stylesheet" href="public/css/casting/listCastings.css">';
-
 require "view/template.php";
