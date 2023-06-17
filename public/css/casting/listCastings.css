@@ -1,3 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin-top: 50px;
+}
+
+.container .content {
+    background-color: #fff;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.castings-card-detail {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-left: 5px;
+    box-sizing: border-box;
+}
+
 .film-card-list {
     display: flex;
     flex-wrap: wrap;
@@ -35,5 +64,5 @@
 
 .casting-info {
     text-align: center;
-    margin-top: 10px; /* Ajout d'une marge supérieure */
+    margin-top: 10px;
 }
