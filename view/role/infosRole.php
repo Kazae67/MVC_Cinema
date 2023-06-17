@@ -1,6 +1,5 @@
 <?php
 ob_start();
-
 $imagePath = 'public/images/imgFilms/';
 ?>
 

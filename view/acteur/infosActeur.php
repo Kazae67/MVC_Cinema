@@ -1,6 +1,8 @@
 <?php
 ob_start();
+$imagePath = 'public/images/imgFilms/';
 ?>
+
 <div class="film-acteur-card-list">
     <div class="film-acteur-card-detail">
         <?php if (isset($request_acteur_infos)) {
@@ -24,12 +26,7 @@ ob_start();
                         <a href="index.php?action=infosFilm&id=<?= $acteur_film['id_film'] ?>">
                             <div class="film-acteur-card">
                                 <!-- IMAGE -->
-                                <?php 
-                                $imagePath = "public/images/imgFilms/";
-                                $imageFilename = $acteur_film["path_img_film"];
-                                $imageUrl = $imagePath . $imageFilename;
-                                ?>
-                                <img class="image-acteur-film" src="<?= $imageUrl ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
+                                <img class="image-acteur-film" src="<?= $imagePath . $acteur_film['path_img_film'] ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
                                 <div class="film-info">
                                     <h3 span class="film-title"><?= $acteur_film['titre_film'] ?></span></h3>
                                     <span class="film-role">Rôle : <?= $acteur_film['role_name'] ?></span>
