@@ -10,14 +10,12 @@ $imagePath = 'public/images/imgFilms/';
                 $acteur_infos = $request_acteur_infos->fetch(); ?>
                 <h2><?= $acteur_infos["prenom"] . " " . $acteur_infos["nom"] ?></h2>
 
+                <p class="acteur-info">Cet acteur a joué un total de : <?= $request_acteur_list_films->rowCount() ?> film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?></p>
+                <p>Né le : <?= $acteur_infos["birthdate"] ?></p>
+
                 <?php if (isset($acteur_infos["biographie"])): ?>
                     <span class="acteur-info"><b>Biographie :</b> <?= $acteur_infos["biographie"] ?></span>
                 <?php endif; ?>
-
-                <p class="acteur-row-count-list">
-                    Cet acteur a joué un total de : <?= $request_acteur_list_films->rowCount() ?> film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?>
-                </p>
-                <span>Né le : <?= $acteur_infos["birthdate"] ?></span>
 
                 <span>
                     Film<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> joué<?= ($request_acteur_list_films->rowCount() > 1) ? "s" : "" ?> :
@@ -36,7 +34,6 @@ $imagePath = 'public/images/imgFilms/';
                                         <h3 class="acteur-title"><a class="acteur-link" href="index.php?action=infosFilm&id=<?= $acteur_film['id_film'] ?>"><?= $acteur_film['titre_film'] ?></a>
                                             <?php if(isset($acteur_film['role_name'])): ?>
                                                 <span class="acteur-role"><a class="acteur-link" href="index.php?action=infosRole&id=<?= $acteur_film['id_role'] ?>"><?= $acteur_film['role_name'] ?></a></span>
-
                                             <?php endif; ?>
                                             <span class="acteur-date"><?= $acteur_film['date_sortie'] ?></span>
                                         </h3>
