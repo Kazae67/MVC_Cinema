@@ -31,8 +31,8 @@ $imagePath = 'public/images/imgFilms/';
                                         <img class="acteur-image" src="<?= $imagePath . $acteur_film['path_img_film'] ?>" alt="affiche du film <?= $acteur_film['titre_film'] ?>">
                                         <div class="acteur-info">
                                             <h3 class="acteur-title">
-                                                <?= $acteur_film['titre_film'] ?><br>
-                                                <span class="acteur-role">Rôle : <?= $acteur_film['role_name'] ?></span><br>
+                                                <?= $acteur_film['titre_film'] ?>
+                                                <span class="acteur-role">Rôle : <?= $acteur_film['role_name'] ?></span>
                                                 <span class="acteur-date">Date : <?= $acteur_film['date_sortie'] ?></span>
                                             </h3>
                                         </div>
