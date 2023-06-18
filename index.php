@@ -6,6 +6,7 @@ use Controller\RolesController;
 use Controller\RealisateursController;
 use Controller\GenresController;
 use Controller\CastingsController;
+use Controller\FormulairesController;
 
 /* AUTO LOAD */
 spl_autoload_register(function ($class_name) {
@@ -18,6 +19,7 @@ $RolesController = new RolesController();
 $RealisateursController = new RealisateursController();
 $GenresController = new GenresController();
 $CastingsController = new CastingsController();
+$FormulairesController = new FormulairesController();
 
 /* FILTER */
 if (isset($_GET["id"])) {
@@ -67,8 +69,13 @@ if (isset($_GET["action"])) {
         case "infosGenre":
             $GenresController->infosGenre($id);
             break;
+        /* Liste CASTINGS */
         case "listCastings":
             $CastingsController->listCastings();
+            break;
+        /* FORMULAIRE */
+        case "formulaire":
+            $FormulairesController->formulaires();
             break;
     }
 } else {

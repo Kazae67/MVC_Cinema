@@ -30,6 +30,7 @@
                 <li><a href="index.php?action=listRealisateurs">Réalisateurs</a></li>
                 <li><a href="index.php?action=listGenres">Genre</a></li>
                 <li><a href="index.php?action=listCastings">Castings</a></li>
+                <li><a href="index.php?action=formulaire">Formulaire</a></li>
             </ul>
         </nav>
         <div>
