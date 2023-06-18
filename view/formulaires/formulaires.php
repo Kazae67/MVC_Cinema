@@ -11,8 +11,8 @@ ob_start();
 
     <label for="sexe">Sexe :</label>
     <select name="sexe" required>
-        <option value="M">Masculin</option>
-        <option value="F">Féminin</option>
+        <option value="Homme">Homme</option>
+        <option value="Femme">Femme</option>
     </select>
 
     <label for="birthdate">Date de naissance :</label>
