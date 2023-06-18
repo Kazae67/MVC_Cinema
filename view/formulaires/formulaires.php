@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<form action="index.php?action=formulaires" method="POST">
+<form action="index.php?action=formulaires" method="POST" enctype="multipart/form-data">
     <label for="prenom">Prénom :</label>
     <input type="text" name="prenom" required>
 
@@ -21,11 +21,14 @@ ob_start();
     <label for="biographie">Biographie :</label>
     <textarea name="biographie" rows="4"></textarea>
 
+    <label for="image">Image :</label>
+    <input type="file" name="image" accept="image/*">
+
     <button type="submit">Ajouter</button>
 </form>
 
 <?php
-$cssLink ='<link rel="stylesheet" href="public/css/formulaires/formulaires.css">';
+$cssLink = '<link rel="stylesheet" href="public/css/formulaires/formulaires.css">';
 $content = ob_get_clean();
 require "view/template.php";
 ?>

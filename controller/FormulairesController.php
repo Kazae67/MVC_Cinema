@@ -13,15 +13,33 @@ class FormulairesController {
             $birthdate = $_POST["birthdate"];
             $biographie = $_POST["biographie"];
 
+            if (isset($_FILES["image"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK) {
+                $file = $_FILES["image"];
+                $filename = $file["name"];
+                $destinationFileTemporaire = $file["tmp_name"];
+
+                $extension = pathinfo($filename, PATHINFO_EXTENSION);
+                $newFilename = uniqid() . "." . $extension;
+
+                $destinationPath = "public/images/imgActeurs/";
+                $destinationFile = $destinationPath . $newFilename;
+                move_uploaded_file($destinationFileTemporaire, $destinationFile);
+
+                $imagePath = $newFilename;
+            } else {
+                $imagePath = "default.jpg";
+            }
+
             $pdo = Connect::seConnecter();
-            $query = "INSERT INTO acteur (prenom, nom, sexe, birthdate, biographie) VALUES (:prenom, :nom, :sexe, :birthdate, :biographie)";
+            $query = "INSERT INTO acteur (prenom, nom, sexe, birthdate, biographie, path_img_acteur) VALUES (:prenom, :nom, :sexe, :birthdate, :biographie, :image)";
             $statement = $pdo->prepare($query);
             $statement->execute([
                 "prenom" => $prenom,
                 "nom" => $nom,
                 "sexe" => $sexe,
                 "birthdate" => $birthdate,
-                "biographie" => $biographie
+                "biographie" => $biographie,
+                "image" => $imagePath
             ]);
 
             header("Location: index.php?action=listActeurs");
