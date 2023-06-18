@@ -22,7 +22,7 @@ ob_start();
     <textarea name="biographie" rows="4"></textarea>
 
     <label for="image">Image :</label>
-    <input type="file" name="image" accept="image/*">
+    <input type="file" name="image" required accept="image/*">
 
     <button type="submit">Ajouter</button>
 </form>

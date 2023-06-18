@@ -13,21 +13,24 @@ class FormulairesController {
             $birthdate = $_POST["birthdate"];
             $biographie = $_POST["biographie"];
 
-            if (isset($_FILES["image"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK) {
-                $file = $_FILES["image"];
-                $filename = $file["name"];
-                $destinationFileTemporaire = $file["tmp_name"];
+            if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
+                header("Location: index.php?action=formulaires&error=Veuillez sélectionner une image");
+                exit;
+            }
 
-                $extension = pathinfo($filename, PATHINFO_EXTENSION);
-                $newFilename = uniqid() . "." . $extension;
+            $file = $_FILES["image"];
+            $filename = $file["name"];
+            $filePathTemporaire = $file["tmp_name"];
 
-                $destinationPath = "public/images/imgActeurs/";
-                $destinationFile = $destinationPath . $newFilename;
-                move_uploaded_file($destinationFileTemporaire, $destinationFile);
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+            $newFilename = uniqid() . "." . $extension;
 
-                $imagePath = $newFilename;
-            } else {
-                $imagePath = "default.jpg";
+            $destinationPath = "public/images/imgActeurs/";
+            $destinationFile = $destinationPath . $newFilename;
+
+            if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
+                header("Location: index.php?action=formulaires&error=Une erreur s'est produite lors du téléchargement de l'image");
+                exit;
             }
 
             $pdo = Connect::seConnecter();
@@ -39,13 +42,12 @@ class FormulairesController {
                 "sexe" => $sexe,
                 "birthdate" => $birthdate,
                 "biographie" => $biographie,
-                "image" => $imagePath
+                "image" => $newFilename
             ]);
 
             header("Location: index.php?action=listActeurs");
             exit;
         } else {
-
             require "view/formulaires/formulaires.php";
         }
     }
