@@ -50,6 +50,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .image-container {
@@ -66,6 +67,16 @@
 }
 
 .casting-info {
-    text-align: center;
-    margin-top: 10px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+}
+
+.image-container:hover .casting-info {
+    display: block;
 }

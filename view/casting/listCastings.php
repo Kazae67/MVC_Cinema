@@ -15,25 +15,25 @@ $imagePathRole = 'public/images/imgRoles/';
             <div class="casting-images-container">
                 <?php if (!empty($casting["prenom"])) { ?>
                     <div class="image-container">
-                        <p class="casting-actor"><?= $casting['prenom'] ?></p>
                         <a href="index.php?action=infosActeur&id=<?= $casting['id_acteur'] ?>">
                             <img class="casting-image" src="<?= $imagePathActeur . $casting['path_img_acteur'] ?>" alt="affiche de l'acteur <?= $casting['prenom'] ?>">
+                            <p class="casting-info casting-actor"><?= $casting['prenom'] ?></p>
                         </a>
                     </div>
                 <?php } ?>
                 <?php if (!empty($casting["titre_film"])) { ?>
                     <div class="image-container">
-                    <p class="casting-film"><?= $casting['titre_film'] ?></p>
                         <a href="index.php?action=infosFilm&id=<?= $casting['id_film'] ?>">
                             <img class="casting-image" src="<?= $imagePathFilm . $casting['path_img_film'] ?>" alt="affiche du film <?= $casting['titre_film'] ?>">
+                            <p class="casting-info casting-film"><?= $casting['titre_film'] ?></p>
                         </a>
                     </div>
                 <?php } ?>
                 <?php if (!empty($casting["role_name"])) { ?>
                     <div class="image-container">
-                    <p class="casting-role"><?= $casting['role_name'] ?></p>
                         <a href="index.php?action=infosRole&id=<?= $casting['id_role'] ?>">
                             <img class="casting-image" src="<?= $imagePathRole . $casting['path_img_role'] ?>" alt="affiche du rôle <?= $casting['role_name'] ?>">
+                            <p class="casting-info casting-role"><?= $casting['role_name'] ?></p>
                         </a>
                     </div>
                 <?php } ?>
