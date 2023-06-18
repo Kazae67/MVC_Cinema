@@ -74,7 +74,7 @@ if (isset($_GET["action"])) {
             $CastingsController->listCastings();
             break;
         /* FORMULAIRE */
-        case "formulaire":
+        case "formulaires":
             $FormulairesController->formulaires();
             break;
     }
