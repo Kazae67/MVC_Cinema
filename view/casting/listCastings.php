@@ -17,7 +17,7 @@ $imagePathRole = 'public/images/imgRoles/';
                     <div class="image-container">
                         <a href="index.php?action=infosActeur&id=<?= $casting['id_acteur'] ?>">
                             <img class="casting-image" src="<?= $imagePathActeur . $casting['path_img_acteur'] ?>" alt="affiche de l'acteur <?= $casting['prenom'] ?>">
-                            <p class="casting-info casting-actor"><?= $casting['prenom'] ?></p>
+                            <p class="casting-info"><?= $casting['prenom'] ?></p>
                         </a>
                     </div>
                 <?php } ?>
@@ -25,7 +25,7 @@ $imagePathRole = 'public/images/imgRoles/';
                     <div class="image-container">
                         <a href="index.php?action=infosFilm&id=<?= $casting['id_film'] ?>">
                             <img class="casting-image" src="<?= $imagePathFilm . $casting['path_img_film'] ?>" alt="affiche du film <?= $casting['titre_film'] ?>">
-                            <p class="casting-info casting-film"><?= $casting['titre_film'] ?></p>
+                            <p class="casting-info"><?= $casting['titre_film'] ?></p>
                         </a>
                     </div>
                 <?php } ?>
@@ -33,7 +33,7 @@ $imagePathRole = 'public/images/imgRoles/';
                     <div class="image-container">
                         <a href="index.php?action=infosRole&id=<?= $casting['id_role'] ?>">
                             <img class="casting-image" src="<?= $imagePathRole . $casting['path_img_role'] ?>" alt="affiche du rôle <?= $casting['role_name'] ?>">
-                            <p class="casting-info casting-role"><?= $casting['role_name'] ?></p>
+                            <p class="casting-info"><?= $casting['role_name'] ?></p>
                         </a>
                     </div>
                 <?php } ?>
