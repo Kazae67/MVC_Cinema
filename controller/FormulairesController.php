@@ -5,6 +5,8 @@ namespace Controller;
 use Model\Connect;
 
 class FormulairesController {
+
+    // ajouter Acteur
     public function ajouterActeur() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $prenom = $_POST["prenom"];
@@ -50,5 +52,10 @@ class FormulairesController {
         } else {
             require "view/formulaires/ajouterActeur.php";
         }
+    }
+
+    // Ajouter Role
+    public function ajouterRole() {
+        require "view/formulaires/ajouterRole.php";
     }
 }

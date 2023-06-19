@@ -19,16 +19,16 @@ ob_start();
     <input type="date" name="birthdate" required>
 
     <label for="biographie">Biographie :</label>
-    <textarea name="biographie" rows="4"></textarea>
+    <textarea name="biographie" rows="5"></textarea>
 
     <label for="image">Image :</label>
     <input type="file" name="image" required accept="image/*">
 
-    <button type="submit">Ajouter</button>
+    <button type="submit">Ajouter l'acteur</button>
 </form>
 
 <?php
-$cssLink = '<link rel="stylesheet" href="public/css/formulaires/ajouterActeur.css">';
+$cssLink = '<link rel="stylesheet" href="public/css/formulaires/formulaires.css">';
 $content = ob_get_clean();
 require "view/template.php";
 ?>

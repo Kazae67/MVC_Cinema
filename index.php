@@ -77,6 +77,9 @@ if (isset($_GET["action"])) {
         case "ajouterActeur":
             $FormulairesController->ajouterActeur();
             break;
+        case "ajouterRole":
+            $FormulairesController->ajouterRole();
+            break;
     }
 } else {
     $FilmsController->listFilms();
