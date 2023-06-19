@@ -83,6 +83,9 @@ if (isset($_GET["action"])) {
         case "ajouterGenre":
             $FormulairesController->ajouterGenre();
             break;
+        case "ajouterRealisateur":
+            $FormulairesController->ajouterRealisateur();
+            break;
     }
 } else {
     $FilmsController->listFilms();

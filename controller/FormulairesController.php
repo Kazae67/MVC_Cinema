@@ -139,5 +139,9 @@ class FormulairesController {
     
         require "view/formulaires/ajouterGenre.php";
     }
+
+    public function ajouterRealisateur(){
+        require "view/formulaires/ajouterRealisateur.php";
+    }
 }
 ?>

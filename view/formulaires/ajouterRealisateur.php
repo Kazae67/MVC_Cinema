@@ -2,31 +2,25 @@
 ob_start();
 ?>
 
-<!-- Ajouter Acteur -->
-<form action="index.php?action=ajouterActeur" method="POST" enctype="multipart/form-data">
+<!-- Ajouter Realisateur -->
+<form action="index.php?action=addRealisateur" method="post">
+
     <label for="nom">Nom :</label>
     <input type="text" name="nom" required>
     
     <label for="prenom">Prénom :</label>
     <input type="text" name="prenom" required>
-
+    
     <label for="sexe">Sexe :</label>
     <select name="sexe" required>
         <option value="Homme">Homme</option>
         <option value="Femme">Femme</option>
     </select>
+    
+    <label>Date de naissance :</label>
+    <input type="date" name="birthdate" id="birthdate">
 
-    <label for="birthdate">Date de naissance :</label>
-    <input type="date" name="birthdate" required>
-
-    <label for="biographie">Biographie :</label>
-    <textarea name="biographie" rows="5" required></textarea>
-
-    <label for="image">Image :</label>
-    <input type="file" name="image" required accept="image/*">
-
-    <button type="submit">Ajouter l'acteur</button>
-</form>
+    <input type="submit" name="submit" value="Ajouter le réalisateur">
 
 <?php
 $cssLink = '<link rel="stylesheet" href="public/css/formulaires/formulaires.css">';
