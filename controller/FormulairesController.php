@@ -55,25 +55,47 @@ class FormulairesController {
     }
 
     // Ajouter Role
-    public function ajouterRole()
-    {
-        if (isset($_POST["submit"])) {
-            $role_name = filter_input(INPUT_POST, "role_name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+ public function ajouterRole()
+{
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $role_name = filter_input(INPUT_POST, "role_name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-            if ($role_name) {
-                $pdo = Connect::seConnecter();
-                $insertRoleStatement = $pdo->prepare("
-                    INSERT INTO role (role_name)
-                    VALUES (:role_name)
-                ");
+        if ($role_name) {
+            $pdo = Connect::seConnecter();
 
-                $insertRoleStatement->execute(["role_name" => $role_name]);
+            $image = $_FILES["image"];
+            $image_filename = $image["name"];
+            $image_temp_path = $image["tmp_name"];
 
-                header('Location: index.php?action=listRoles');
-                die();
+            $extension = pathinfo($image_filename, PATHINFO_EXTENSION);
+            $new_image_filename = uniqid() . "." . $extension;
+
+            $destination_path = "public/images/imgRoles/";
+            $destination_file = $destination_path . $new_image_filename;
+
+            if (!move_uploaded_file($image_temp_path, $destination_file)) {
+                header("Location: index.php?action=ajouterRole&error=Une erreur s'est produite lors du téléchargement de l'image");
+                exit;
             }
-        }
 
-        require "view/formulaires/ajouterRole.php";
+            $insertRoleStatement = $pdo->prepare("
+                INSERT INTO role (role_name, description, path_img_role)
+                VALUES (:role_name, :description, :path_img_role)
+            ");
+
+            $insertRoleStatement->execute([
+                "role_name" => $role_name,
+                "description" => $description,
+                "path_img_role" => $new_image_filename
+            ]);
+
+            header('Location: index.php?action=listRoles');
+            exit;
+        }
     }
+
+    require "view/formulaires/ajouterRole.php";
 }
+}
+?>
