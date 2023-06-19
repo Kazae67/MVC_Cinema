@@ -55,7 +55,25 @@ class FormulairesController {
     }
 
     // Ajouter Role
-    public function ajouterRole() {
+    public function ajouterRole()
+    {
+        if (isset($_POST["submit"])) {
+            $role_name = filter_input(INPUT_POST, "role_name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            if ($role_name) {
+                $pdo = Connect::seConnecter();
+                $insertRoleStatement = $pdo->prepare("
+                    INSERT INTO role (role_name)
+                    VALUES (:role_name)
+                ");
+
+                $insertRoleStatement->execute(["role_name" => $role_name]);
+
+                header('Location: index.php?action=listRoles');
+                die();
+            }
+        }
+
         require "view/formulaires/ajouterRole.php";
     }
 }
