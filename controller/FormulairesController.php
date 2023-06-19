@@ -30,10 +30,10 @@ class FormulairesController {
             $filePathTemporaire = $file["tmp_name"];
 
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
-            $newFilename = uniqid() . "." . $extension;
+            $newImageFileName = uniqid() . "." . $extension;
 
             $destinationPath = "public/images/imgActeurs/";
-            $destinationFile = $destinationPath . $newFilename;
+            $destinationFile = $destinationPath . $newImageFileName;
 
             if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
                 header("Location: index.php?action=ajouterActeur&error=Une erreur s'est produite lors du téléchargement de l'image");
@@ -42,14 +42,14 @@ class FormulairesController {
 
             $pdo = Connect::seConnecter();
             $query = "INSERT INTO acteur (prenom, nom, sexe, birthdate, biographie, path_img_acteur) VALUES (:prenom, :nom, :sexe, :birthdate, :biographie, :image)";
-            $statement = $pdo->prepare($query);
-            $statement->execute([
+            $insertActeurStatement = $pdo->prepare($query);
+            $insertActeurStatement->execute([
                 "prenom" => $prenom,
                 "nom" => $nom,
                 "sexe" => $sexe,
                 "birthdate" => $birthdate,
                 "biographie" => $biographie,
-                "image" => $newFilename
+                "image" => $newImageFileName
             ]);
 
             header("Location: index.php?action=listActeurs");
@@ -69,17 +69,17 @@ class FormulairesController {
         if ($role_name) {
             $pdo = Connect::seConnecter();
 
-            $image = $_FILES["image"];
-            $image_filename = $image["name"];
-            $image_temp_path = $image["tmp_name"];
+            $file = $_FILES["image"];
+            $filename = $file["name"];
+            $filePathTemporaire = $file["tmp_name"];
 
-            $extension = pathinfo($image_filename, PATHINFO_EXTENSION);
-            $new_image_filename = uniqid() . "." . $extension;
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+            $newImageFileName = uniqid() . "." . $extension;
 
-            $destination_path = "public/images/imgRoles/";
-            $destination_file = $destination_path . $new_image_filename;
+            $destinationPath = "public/images/imgRoles/";
+            $destinationFile = $destinationPath . $newImageFileName;
 
-            if (!move_uploaded_file($image_temp_path, $destination_file)) {
+            if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
                 header("Location: index.php?action=ajouterRole&error=Une erreur s'est produite lors du téléchargement de l'image");
                 exit;
             }
@@ -92,7 +92,7 @@ class FormulairesController {
             $insertRoleStatement->execute([
                 "role_name" => $role_name,
                 "description" => $description,
-                "path_img_role" => $new_image_filename
+                "path_img_role" => $newImageFileName
             ]);
 
             header('Location: index.php?action=listRoles');
@@ -113,17 +113,17 @@ class FormulairesController {
             if ($genre_name) {
                 $pdo = Connect::seConnecter();
     
-                $image = $_FILES["image"];
-                $image_filename = $image["name"];
-                $image_temp_path = $image["tmp_name"];
+                $file = $_FILES["image"];
+                $filename = $file["name"];
+                $image_temp_path = $file["tmp_name"];
     
-                $extension = pathinfo($image_filename, PATHINFO_EXTENSION);
-                $new_image_filename = uniqid() . "." . $extension;
+                $extension = pathinfo($filename, PATHINFO_EXTENSION);
+                $newImageFileName = uniqid() . "." . $extension;
     
-                $destination_path = "public/images/imgGenres/";
-                $destination_file = $destination_path . $new_image_filename;
+                $destinationPath = "public/images/imgGenres/";
+                $destinationFile = $destinationPath . $newImageFileName;
     
-                if (!move_uploaded_file($image_temp_path, $destination_file)) {
+                if (!move_uploaded_file($image_temp_path, $destinationFile)) {
                     header("Location: index.php?action=ajouterGenre&error=Une erreur s'est produite lors du téléchargement de l'image");
                     exit;
                 }
@@ -135,7 +135,7 @@ class FormulairesController {
     
                 $insertGenreStatement->execute([
                     "genre_name" => $genre_name,
-                    "path_img_genre" => $new_image_filename
+                    "path_img_genre" => $newImageFileName
                 ]);
     
                 header('Location: index.php?action=listGenres');
@@ -146,7 +146,6 @@ class FormulairesController {
         require "view/formulaires/ajouterGenre.php";
     }
 
-    // Ajouter REALISATEUR
     // Ajouter REALISATEUR
     public function ajouterRealisateur()
     {
@@ -167,10 +166,10 @@ class FormulairesController {
             $filePathTemporaire = $file["tmp_name"];
 
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
-            $newFilename = uniqid() . "." . $extension;
+            $newImageFileName = uniqid() . "." . $extension;
 
             $destinationPath = "public/images/imgRealisateurs/";
-            $destinationFile = $destinationPath . $newFilename;
+            $destinationFile = $destinationPath . $newImageFileName;
 
             if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
                 header("Location: index.php?action=ajouterRealisateur&error=Une erreur s'est produite lors du téléchargement de l'image");
@@ -179,14 +178,14 @@ class FormulairesController {
 
             $pdo = Connect::seConnecter();
             $query = "INSERT INTO realisateur (prenom, nom, sexe, birthdate, biographie, path_img_realisateur) VALUES (:prenom, :nom, :sexe, :birthdate, :biographie, :image)";
-            $statement = $pdo->prepare($query);
-            $statement->execute([
+            $insertRealisateurStatement = $pdo->prepare($query);
+            $insertRealisateurStatement->execute([
                 "prenom" => $prenom,
                 "nom" => $nom,
                 "sexe" => $sexe,
                 "birthdate" => $birthdate,
                 "biographie" => $biographie,
-                "image" => $newFilename
+                "image" => $newImageFileName
             ]);
 
             header("Location: index.php?action=listRealisateurs");
