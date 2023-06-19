@@ -95,7 +95,11 @@ class FormulairesController {
         }
     }
 
-    require "view/formulaires/ajouterRole.php";
-}
+            require "view/formulaires/ajouterRole.php";
+    }
+
+    public function ajouterGenre(){
+        require "view/formulaires/ajouterGenre.php";
+    }
 }
 ?>

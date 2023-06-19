@@ -80,6 +80,9 @@ if (isset($_GET["action"])) {
         case "ajouterRole":
             $FormulairesController->ajouterRole();
             break;
+        case "ajouterGenre":
+            $FormulairesController->ajouterGenre();
+            break;
     }
 } else {
     $FilmsController->listFilms();
