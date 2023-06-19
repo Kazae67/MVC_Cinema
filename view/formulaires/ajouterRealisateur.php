@@ -3,7 +3,7 @@ ob_start();
 ?>
 
 <!-- Ajouter Realisateur -->
-<form action="index.php?action=addRealisateur" method="post">
+<form action="index.php?action=ajouterRealisateur" method="post">
 
     <label for="nom">Nom :</label>
     <input type="text" name="nom" required>
@@ -16,7 +16,7 @@ ob_start();
         <option value="Homme">Homme</option>
         <option value="Femme">Femme</option>
     </select>
-    
+
     <label>Date de naissance :</label>
     <input type="date" name="birthdate" id="birthdate">
 

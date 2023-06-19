@@ -140,8 +140,33 @@ class FormulairesController {
         require "view/formulaires/ajouterGenre.php";
     }
 
-    public function ajouterRealisateur(){
-        require "view/formulaires/ajouterRealisateur.php";
-    }
+	public function ajouterRealisateur()
+	{
+
+		if (isset($_POST["submit"])) {
+
+			$prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
+			$nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
+			$sexe= filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_SPECIAL_CHARS);
+			$birthdate= filter_input(INPUT_POST, "birthdate", FILTER_SANITIZE_SPECIAL_CHARS);
+
+			if ($prenom && $nom && $sexe && $birthdate) {
+
+				$pdo = Connect::seConnecter();
+
+				$stmt = $pdo->prepare("
+				INSERT INTO realisateur (prenom, nom, sexe, birthdate)
+				VALUES (:prenom, :nom, :sexe, :birthdate)
+				");
+
+				$stmt->execute(["prenom" => $prenom, "nom" => $nom, "sexe" => $sexe, "birthdate" => $birthdate]);
+
+				header('location:index.php?action=listRealisateurs');
+				die();
+			}
+		}
+
+		require "view/formulaires/ajouterRealisateur.php";
+	}
 }
 ?>
