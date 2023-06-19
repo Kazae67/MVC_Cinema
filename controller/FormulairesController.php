@@ -98,7 +98,45 @@ class FormulairesController {
             require "view/formulaires/ajouterRole.php";
     }
 
-    public function ajouterGenre(){
+
+    public function ajouterGenre()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $genre_name = filter_input(INPUT_POST, "genre_name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    
+            if ($genre_name) {
+                $pdo = Connect::seConnecter();
+    
+                $image = $_FILES["image"];
+                $image_filename = $image["name"];
+                $image_temp_path = $image["tmp_name"];
+    
+                $extension = pathinfo($image_filename, PATHINFO_EXTENSION);
+                $new_image_filename = uniqid() . "." . $extension;
+    
+                $destination_path = "public/images/imgGenres/";
+                $destination_file = $destination_path . $new_image_filename;
+    
+                if (!move_uploaded_file($image_temp_path, $destination_file)) {
+                    header("Location: index.php?action=ajouterGenre&error=Une erreur s'est produite lors du téléchargement de l'image");
+                    exit;
+                }
+    
+                $insertGenreStatement = $pdo->prepare("
+                    INSERT INTO genre (genre_name, path_img_genre)
+                    VALUES (:genre_name, :path_img_genre)
+                ");
+    
+                $insertGenreStatement->execute([
+                    "genre_name" => $genre_name,
+                    "path_img_genre" => $new_image_filename
+                ]);
+    
+                header('Location: index.php?action=listGenres');
+                exit;
+            }
+        }
+    
         require "view/formulaires/ajouterGenre.php";
     }
 }
