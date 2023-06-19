@@ -8,17 +8,13 @@ class FormulairesController {
 
     // ajouter ACTEUR
     public function ajouterActeur() {
-        $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
-        $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
-        $sexe= filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_SPECIAL_CHARS);
-        $birthdate= filter_input(INPUT_POST, "birthdate", FILTER_SANITIZE_SPECIAL_CHARS);
-        $biographie= filter_input(INPUT_POST, "biographie", FILTER_SANITIZE_SPECIAL_CHARS);
+
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $prenom = $_POST["prenom"];
-            $nom = $_POST["nom"];
-            $sexe = $_POST["sexe"];
-            $birthdate = $_POST["birthdate"];
-            $biographie = $_POST["biographie"];
+            $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
+            $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
+            $sexe= filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_SPECIAL_CHARS);
+            $birthdate= filter_input(INPUT_POST, "birthdate", FILTER_SANITIZE_SPECIAL_CHARS);
+            $biographie= filter_input(INPUT_POST, "biographie", FILTER_SANITIZE_SPECIAL_CHARS);
 
             if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
                 header("Location: index.php?action=ajouterActeur&error=Veuillez sélectionner une image");
