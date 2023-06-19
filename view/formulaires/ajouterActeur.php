@@ -19,7 +19,7 @@ ob_start();
     <input type="date" name="birthdate" required>
 
     <label for="biographie">Biographie :</label>
-    <textarea name="biographie" rows="5"></textarea>
+    <textarea name="biographie" rows="5" required></textarea>
 
     <label for="image">Image :</label>
     <input type="file" name="image" required accept="image/*">

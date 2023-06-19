@@ -4,13 +4,13 @@ ob_start();
 <!-- Ajouter rôle -->
 <form action="index.php?action=ajouterRole" method="post" enctype="multipart/form-data">
     <label>Nom du rôle :</label>
-    <input type="textarea" name="role_name" id="role_nom">
+    <input type="textarea" name="role_name" id="role_nom" required>
 
     <label>Description :</label>
-    <textarea name="description" rows="5"></textarea>
+    <textarea name="description" rows="5" required></textarea>
 
     <label>Image :</label>
-    <input type="file" name="image" accept="image/*">
+    <input type="file" name="image" accept="image/*" required>
 
     <input type="submit" name="submit" value="Ajouter le rôle">
 </form>
