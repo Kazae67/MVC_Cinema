@@ -6,7 +6,7 @@ use Model\Connect;
 
 class FormulairesController {
 
-    // ajouter Acteur
+    // ajouter ACTEUR
     public function ajouterActeur() {
         $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
         $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -59,7 +59,7 @@ class FormulairesController {
         }
     }
 
-    // Ajouter Role
+    // Ajouter ROLE
  public function ajouterRole()
 {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -104,6 +104,7 @@ class FormulairesController {
     }
 
 
+    // Ajouter GENRE 
     public function ajouterGenre()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -145,33 +146,37 @@ class FormulairesController {
         require "view/formulaires/ajouterGenre.php";
     }
 
-	public function ajouterRealisateur()
-	{
-
-		if (isset($_POST["submit"])) {
-
-			$prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
-			$nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
-			$sexe= filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_SPECIAL_CHARS);
-			$birthdate= filter_input(INPUT_POST, "birthdate", FILTER_SANITIZE_SPECIAL_CHARS);
-
-			if ($prenom && $nom && $sexe && $birthdate) {
-
-				$pdo = Connect::seConnecter();
-
-				$stmt = $pdo->prepare("
-				INSERT INTO realisateur (prenom, nom, sexe, birthdate)
-				VALUES (:prenom, :nom, :sexe, :birthdate)
-				");
-
-				$stmt->execute(["prenom" => $prenom, "nom" => $nom, "sexe" => $sexe, "birthdate" => $birthdate]);
-
-				header('location:index.php?action=listRealisateurs');
-				die();
-			}
-		}
-
-		require "view/formulaires/ajouterRealisateur.php";
-	}
+    // Ajouter REALISATEUR
+    public function ajouterRealisateur()
+    {
+        if (isset($_POST["submit"])) {
+            $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
+            $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
+            $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_SPECIAL_CHARS);
+            $birthdate = filter_input(INPUT_POST, "birthdate", FILTER_SANITIZE_SPECIAL_CHARS);
+    
+            if ($prenom && $nom && $sexe && $birthdate) {
+                $pdo = Connect::seConnecter();
+    
+                $query = "
+                    INSERT INTO realisateur (prenom, nom, sexe, birthdate)
+                    VALUES (:prenom, :nom, :sexe, :birthdate)
+                ";
+    
+                $insertRealisateurStatement = $pdo->prepare($query);
+                $insertRealisateurStatement->execute([
+                    "prenom" => $prenom,
+                    "nom" => $nom,
+                    "sexe" => $sexe,
+                    "birthdate" => $birthdate
+                ]);
+    
+                header('Location: index.php?action=listRealisateurs');
+                die();
+            }
+        }
+    
+        require "view/formulaires/ajouterRealisateur.php";
+    }
 }
 ?>
