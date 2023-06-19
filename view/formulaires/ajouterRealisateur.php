@@ -3,7 +3,7 @@ ob_start();
 ?>
 
 <!-- Ajouter Realisateur -->
-<form action="index.php?action=ajouterRealisateur" method="post">
+<form action="index.php?action=ajouterRealisateur" method="post" enctype="multipart/form-data">
 
     <label for="nom">Nom :</label>
     <input type="text" name="nom" required>
@@ -20,7 +20,14 @@ ob_start();
     <label>Date de naissance :</label>
     <input type="date" name="birthdate" id="birthdate">
 
+    <label>Biographie :</label>
+    <textarea name="biographie" rows="5" required></textarea>
+
+    <label>Image :</label>
+    <input type="file" name="image" required accept="image/*">
+
     <input type="submit" name="submit" value="Ajouter le réalisateur">
+</form>
 
 <?php
 $cssLink = '<link rel="stylesheet" href="public/css/formulaires/formulaires.css">';

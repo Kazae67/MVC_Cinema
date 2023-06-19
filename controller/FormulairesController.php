@@ -147,36 +147,53 @@ class FormulairesController {
     }
 
     // Ajouter REALISATEUR
+    // Ajouter REALISATEUR
     public function ajouterRealisateur()
     {
-        if (isset($_POST["submit"])) {
-            $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
-            $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
-            $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_SPECIAL_CHARS);
-            $birthdate = filter_input(INPUT_POST, "birthdate", FILTER_SANITIZE_SPECIAL_CHARS);
-    
-            if ($prenom && $nom && $sexe && $birthdate) {
-                $pdo = Connect::seConnecter();
-    
-                $query = "
-                    INSERT INTO realisateur (prenom, nom, sexe, birthdate)
-                    VALUES (:prenom, :nom, :sexe, :birthdate)
-                ";
-    
-                $insertRealisateurStatement = $pdo->prepare($query);
-                $insertRealisateurStatement->execute([
-                    "prenom" => $prenom,
-                    "nom" => $nom,
-                    "sexe" => $sexe,
-                    "birthdate" => $birthdate
-                ]);
-    
-                header('Location: index.php?action=listRealisateurs');
-                die();
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $birthdate = filter_input(INPUT_POST, "birthdate", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $biographie = filter_input(INPUT_POST, "biographie", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
+                header("Location: index.php?action=ajouterRealisateur&error=Veuillez sélectionner une image");
+                exit;
             }
+
+            $file = $_FILES["image"];
+            $filename = $file["name"];
+            $filePathTemporaire = $file["tmp_name"];
+
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+            $newFilename = uniqid() . "." . $extension;
+
+            $destinationPath = "public/images/imgRealisateurs/";
+            $destinationFile = $destinationPath . $newFilename;
+
+            if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
+                header("Location: index.php?action=ajouterRealisateur&error=Une erreur s'est produite lors du téléchargement de l'image");
+                exit;
+            }
+
+            $pdo = Connect::seConnecter();
+            $query = "INSERT INTO realisateur (prenom, nom, sexe, birthdate, biographie, path_img_realisateur) VALUES (:prenom, :nom, :sexe, :birthdate, :biographie, :image)";
+            $statement = $pdo->prepare($query);
+            $statement->execute([
+                "prenom" => $prenom,
+                "nom" => $nom,
+                "sexe" => $sexe,
+                "birthdate" => $birthdate,
+                "biographie" => $biographie,
+                "image" => $newFilename
+            ]);
+
+            header("Location: index.php?action=listRealisateurs");
+            exit;
+        } else {
+            require "view/formulaires/ajouterRealisateur.php";
         }
-    
-        require "view/formulaires/ajouterRealisateur.php";
     }
 }
 ?>
