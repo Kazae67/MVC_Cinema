@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-
+<!-- Ajouter Genre -->
 <form action="index.php?action=ajouterGenre" method="post" enctype="multipart/form-data">
     <label>Nom du genre :</label>
     <input type="textarea" name="genre_name" id="genre_name" required>
