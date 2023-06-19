@@ -5,7 +5,7 @@ namespace Controller;
 use Model\Connect;
 
 class FormulairesController {
-    public function formulaires() {
+    public function ajouterActeur() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $prenom = $_POST["prenom"];
             $nom = $_POST["nom"];
@@ -14,7 +14,7 @@ class FormulairesController {
             $biographie = $_POST["biographie"];
 
             if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
-                header("Location: index.php?action=formulaires&error=Veuillez sélectionner une image");
+                header("Location: index.php?action=ajouterActeur&error=Veuillez sélectionner une image");
                 exit;
             }
 
@@ -29,7 +29,7 @@ class FormulairesController {
             $destinationFile = $destinationPath . $newFilename;
 
             if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
-                header("Location: index.php?action=formulaires&error=Une erreur s'est produite lors du téléchargement de l'image");
+                header("Location: index.php?action=ajouterActeur&error=Une erreur s'est produite lors du téléchargement de l'image");
                 exit;
             }
 
@@ -48,7 +48,7 @@ class FormulairesController {
             header("Location: index.php?action=listActeurs");
             exit;
         } else {
-            require "view/formulaires/formulaires.php";
+            require "view/formulaires/ajouterActeur.php";
         }
     }
 }

@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <!-- Ajouter acteur -->
-<form action="index.php?action=formulaires" method="POST" enctype="multipart/form-data">
+<form action="index.php?action=ajouterActeur" method="POST" enctype="multipart/form-data">
     <label for="prenom">Prénom :</label>
     <input type="text" name="prenom" required>
 
@@ -28,7 +28,7 @@ ob_start();
 </form>
 
 <?php
-$cssLink = '<link rel="stylesheet" href="public/css/formulaires/formulaires.css">';
+$cssLink = '<link rel="stylesheet" href="public/css/formulaires/ajouterActeur.css">';
 $content = ob_get_clean();
 require "view/template.php";
 ?>

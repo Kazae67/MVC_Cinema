@@ -34,7 +34,7 @@
                     <a href="#">Formulaires</a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Ajouter un film</a></li>
-                        <li><a href="#">Ajouter un acteur</a></li>
+                        <li><a href="index.php?action=ajouterActeur">Ajouter un acteur</a></li>
                         <li><a href="#">Ajouter un rôle</a></li>
                         <li><a href="#">Ajouter un réalisateur</a></li>
                         <li><a href="#">Ajouter un genre</a></li>

@@ -74,8 +74,8 @@ if (isset($_GET["action"])) {
             $CastingsController->listCastings();
             break;
         /* FORMULAIRE */
-        case "formulaires":
-            $FormulairesController->formulaires();
+        case "ajouterActeur":
+            $FormulairesController->ajouterActeur();
             break;
     }
 } else {
