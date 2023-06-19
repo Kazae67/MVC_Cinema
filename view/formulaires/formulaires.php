@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-
+<!-- Ajouter acteur -->
 <form action="index.php?action=formulaires" method="POST" enctype="multipart/form-data">
     <label for="prenom">Prénom :</label>
     <input type="text" name="prenom" required>

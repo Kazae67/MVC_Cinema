@@ -28,20 +28,31 @@
                 <li><a href="index.php?action=listActeurs">Acteurs</a></li>
                 <li><a href="index.php?action=listRoles">Rôles</a></li>
                 <li><a href="index.php?action=listRealisateurs">Réalisateurs</a></li>
-                <li><a href="index.php?action=listGenres">Genre</a></li>
+                <li><a href="index.php?action=listGenres">Genres</a></li>
                 <li><a href="index.php?action=listCastings">Castings</a></li>
-                <li><a href="index.php?action=formulaires">Formulaire</a></li>
+                <li class="dropdown">
+                    <a href="#">Formulaires</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Ajouter un film</a></li>
+                        <li><a href="#">Ajouter un acteur</a></li>
+                        <li><a href="#">Ajouter un rôle</a></li>
+                        <li><a href="#">Ajouter un réalisateur</a></li>
+                        <li><a href="#">Ajouter un genre</a></li>
+                        <li><a href="#">Ajouter un casting</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <div>
             <?php if (isset($liste)): ?>
-                <h2 class="list-film"><?= $liste ?></h2>
+                <h2 class="list-cards"><?= $liste ?></h2>
             <?php endif; ?>
             <?php if (isset($content)): ?>
                 <?= $content ?>
             <?php endif; ?>
         </div>
     </main>
+
 </body>
 
 </html>
