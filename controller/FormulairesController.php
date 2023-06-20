@@ -244,4 +244,9 @@ class FormulairesController {
             require "view/formulaires/ajouterFilm.php";
         }
     }
+
+    // ajouter CASTING
+    public function ajouterCasting(){
+        require "view/formulaires/ajouterCasting.php";
+    }
 }

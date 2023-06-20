@@ -38,7 +38,7 @@
                         <li><a href="index.php?action=ajouterRole">Ajouter un rôle</a></li>
                         <li><a href="index.php?action=ajouterRealisateur">Ajouter un réalisateur</a></li>
                         <li><a href="index.php?action=ajouterGenre">Ajouter un genre</a></li>
-                        <li><a href="#">Ajouter un casting</a></li>
+                        <li><a href="index.php?action=ajouterCasting">Ajouter un casting</a></li>
                     </ul>
                 </li>
             </ul>

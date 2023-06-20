@@ -93,6 +93,9 @@ if (isset($_GET["action"])) {
         case "ajouterFilm":
             $FormulairesController->ajouterFilm();
             break;
+        case "ajouterCasting":
+            $FormulairesController->ajouterCasting();
+            break;
     }
 } else {
     $FilmsController->listFilms();
