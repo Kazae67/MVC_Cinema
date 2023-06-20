@@ -33,7 +33,7 @@
                 <li class="dropdown">
                     <a href="#">Formulaires</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Ajouter un film</a></li>
+                        <li><a href="index.php?action=ajouterFilm">Ajouter un film</a></li>
                         <li><a href="index.php?action=ajouterActeur">Ajouter un acteur</a></li>
                         <li><a href="index.php?action=ajouterRole">Ajouter un rôle</a></li>
                         <li><a href="index.php?action=ajouterRealisateur">Ajouter un réalisateur</a></li>

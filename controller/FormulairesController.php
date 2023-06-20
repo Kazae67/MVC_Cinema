@@ -190,5 +190,10 @@ class FormulairesController {
             require "view/formulaires/ajouterRealisateur.php";
         }
     }
+
+    // Ajouter FILM
+    public function ajouterFilm(){
+        require "view/formulaires/ajouterFilm.php";
+    }
 }
 ?>

@@ -73,18 +73,25 @@ if (isset($_GET["action"])) {
         case "listCastings":
             $CastingsController->listCastings();
             break;
-        /* FORMULAIRE */
+        /* Ajouter ACTEUR */
         case "ajouterActeur":
             $FormulairesController->ajouterActeur();
             break;
+        /* Ajouter ROLE */
         case "ajouterRole":
             $FormulairesController->ajouterRole();
             break;
+        /* Ajouter GENRE */
         case "ajouterGenre":
             $FormulairesController->ajouterGenre();
             break;
+        /* Ajouter REALISATEUR */
         case "ajouterRealisateur":
             $FormulairesController->ajouterRealisateur();
+            break;
+        /* Ajouter FILM */
+        case "ajouterFilm":
+            $FormulairesController->ajouterFilm();
             break;
     }
 } else {
