@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<!-- Ajouter Acteur -->
+<!-- Ajouter ACTEUR -->
 <form action="index.php?action=ajouterActeur" method="POST" enctype="multipart/form-data">
     <label for="nom">Nom :</label>
     <input type="text" name="nom" required>
@@ -25,7 +25,7 @@ ob_start();
     <label for="image">Image :</label>
     <input type="file" name="image" required accept="image/*">
 
-    <button type="submit">Ajouter l'acteur</button>
+    <button type="submit" name="submit" value="Ajouter l'acteur">Ajouter l'acteur</button>
 </form>
 
 <?php

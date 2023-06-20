@@ -2,9 +2,9 @@
 ob_start();
 ?>
 
-<!-- Ajouter Rôle -->
+<!-- Ajouter RÔLE -->
 <form action="index.php?action=ajouterRole" method="post" enctype="multipart/form-data">
-    <label>Nom du rôle :</label>
+    <label>Rôle :</label>
     <input type="textarea" name="role_name" id="role_nom" required>
 
     <label>Description :</label>

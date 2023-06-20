@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<!-- Ajouter Realisateur -->
+<!-- Ajouter REALISATEUR -->
 <form action="index.php?action=ajouterRealisateur" method="post" enctype="multipart/form-data">
 
     <label for="nom">Nom :</label>
