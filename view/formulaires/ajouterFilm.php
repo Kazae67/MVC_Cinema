@@ -1,32 +1,41 @@
-<?php
-ob_start();
-?>
+<?php ob_start(); ?>
 
 <!-- Ajouter FILM -->
-<form action="index.php?action=ajouterFilm" method="post">
+<form action="index.php?action=ajouterFilm" method="post" enctype="multipart/form-data">
+    <label for="titre_film">Titre :</label>
+    <input type="text" name="titre_film" id="titre_film" required>
 
-    <label for="titre_film">Film :</label>
-    <input type="textarea" name="titre_film" id="titre_film">
+    <label for="genre_id">Genre :</label>
+    <select name="genre_id" id="genre_id">
+        <?php foreach ($genres as $genre) : ?>
+            <option value="<?php echo $genre['id_genre']; ?>"><?php echo $genre['genre_name']; ?></option>
+        <?php endforeach; ?>
+    </select>
 
-    <label>Genre :</label>
-    <input type="textarea" name="genre_name" id="genre_name" required>
+    <label for="realisateur_id">Réalisateur :</label>
+    <select name="realisateur_id" id="realisateur_id">
+        <?php foreach ($realisateurs as $realisateur) : ?>
+            <option value="<?php echo $realisateur['id_realisateur']; ?>"><?php echo $realisateur['prenom'] . ' ' . $realisateur['nom']; ?></option>
+        <?php endforeach; ?>
+    </select>
 
-    <label for="date_sortie">Année :</label>
-    <input type="number" name="date_sortie" id="date_sortie">
+    <label for="date_sortie">Date de sortie :</label>
+    <input type="text" name="date_sortie" id="date_sortie" pattern="\year{4}" placeholder="Année de sortie" required>
 
-    <label for="note">Note (0-5) :</label>
-    <input type="number" min="0" max="5" name="note" id="note">
+    <label for="note">Note :</label>
+    <input type="number" name="note" id="note" min="0" max="5" required>
 
-    <label for="duree">Durée :</label>
-    <input type="number" name="duree" id="duree">
+    <label for="duree">Durée (en minutes) :</label>
+    <input type="number" name="duree" id="duree" min="0" required>
 
     <label for="synopsis">Synopsis :</label>
-    <textarea name="synopsis" rows="5" required></textarea>
+    <textarea name="synopsis" id="synopsis" rows="5" required></textarea>
 
-    <label>Image :</label>
-    <input type="file" name="image" required accept="image/*">
+    <label for="image">Image :</label>
+    <input type="file" name="image" id="image" accept="image/*" required>
 
-    <input type="submit" name="submit" value="Ajouter le réalisateur">
+    <input type="submit" value="Ajouter">
+</form>
 
 <?php
 $cssLink = '<link rel="stylesheet" href="public/css/formulaires/formulaires.css">';

@@ -192,8 +192,64 @@ class FormulairesController {
     }
 
     // Ajouter FILM
-    public function ajouterFilm(){
-        require "view/formulaires/ajouterFilm.php";
+    public function ajouterFilm() {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $titre_film = filter_input(INPUT_POST, "titre_film", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $genre_id = filter_input(INPUT_POST, "genre_id", FILTER_SANITIZE_NUMBER_INT);
+            $realisateur_id = filter_input(INPUT_POST, "realisateur_id", FILTER_SANITIZE_NUMBER_INT);
+            $date_sortie = date("Y", strtotime(filter_input(INPUT_POST, "date_sortie", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
+            $note = filter_input(INPUT_POST, "note", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+            $duree = filter_input(INPUT_POST, "duree", FILTER_SANITIZE_NUMBER_INT);
+            $synopsis = filter_input(INPUT_POST, "synopsis", FILTER_SANITIZE_SPECIAL_CHARS);
+
+            if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
+                header("Location: index.php?action=ajouterFilm&error=Veuillez sélectionner une image");
+                exit;
+            }
+
+            $file = $_FILES["image"];
+            $filename = $file["name"];
+            $filePathTemporaire = $file["tmp_name"];
+
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+            $newImageFileName = uniqid() . "." . $extension;
+
+            $destinationPath = "public/images/imgFilms/";
+            $destinationFile = $destinationPath . $newImageFileName;
+
+            if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
+                header("Location: index.php?action=ajouterFilm&error=Une erreur s'est produite lors du téléchargement de l'image");
+                exit;
+            }
+
+            $pdo = Connect::seConnecter();
+            $query = "INSERT INTO film (titre_film, genre_id, realisateur_id, date_sortie, note, duree, synopsis, path_img_film)
+                      VALUES (:titre_film, :genre_id, :realisateur_id, :date_sortie, :note, :duree, :synopsis, :image)";
+            $insertFilmStatement = $pdo->prepare($query);
+            $insertFilmStatement->execute([
+                "titre_film" => $titre_film,
+                "genre_id" => $genre_id,
+                "realisateur_id" => $realisateur_id,
+                "date_sortie" => $date_sortie,
+                "note" => $note,
+                "duree" => $duree,
+                "synopsis" => $synopsis,
+                "image" => $newImageFileName
+            ]);
+
+            header("Location: index.php?action=listFilms");
+            exit;
+        } else {
+            $pdo = Connect::seConnecter();
+            $selectGenresStatement = $pdo->query("SELECT * FROM genre");
+            $genres = $selectGenresStatement->fetchAll();
+
+            $selectRealisateursStatement = $pdo->query("SELECT * FROM realisateur");
+            $realisateurs = $selectRealisateursStatement->fetchAll();
+
+            require "view/formulaires/ajouterFilm.php";
+        }
     }
+    
 }
 ?>
