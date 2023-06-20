@@ -20,6 +20,20 @@ class RealisateursController {
         require "view/realisateur/listRealisateurs.php";
     }
 
+    //  Votre façon 
+    // public function listRealisateurs() {
+    //     $pdo=Connect::seConnecter();
+    //     $query = ("
+    //         SELECT real.id_personne, p.prenom, ,p.nom, DATE_FORMAT(p.birthdate, '%d/%m/%Y') 
+    //         FROM personne p
+    //         inner join realisateur real ON p.id_personne = real.id_personne
+    //         ORDER BY p.birthdate DESC
+    //     ");
+    //     $request = $pdo->query($query);
+    //     require "view/realisateur/listRealisateurs.php";
+    // }
+
+
     // Infos du REALISATEUR
     public function infosRealisateur($id_realisateur) {
         $pdo = Connect::seConnecter();
