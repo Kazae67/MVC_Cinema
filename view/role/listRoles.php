@@ -7,15 +7,16 @@
 <!-- Afficher le nombre total de rôles disponibles en utilisant la fonction rowCount() de l'objet $request. -->
 <p class="row-count-list"> Un total de <?= $request->rowCount() ?> rôle<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
-<!-- LISTE DES RÔLES -->
+<!-- LISTE DES CARDS ROLE -->
 <div class="role-card-list">
+    
     <!-- Boucle foreach pour itérer sur chaque rôle récupéré à partir de l'objet $request->fetchAll(). 
     Chaque rôle est affiché sous forme de card avec un lien vers les informations détaillées du rôle. -->
     <?php foreach ($request->fetchAll() as $role): ?>
         <a href="index.php?action=infosRole&id=<?= $role["id_role"] ?>">
             <div class="role-card">
                 <div class="role-card-infos">
-                    <!-- À l'intérieur de chaque card de rôle, le nom du rôle affiché -->
+                    <!-- À l'intérieur de chaque card de rôle, le nom du rôle est affiché -->
                     <span><?= "Role : ".$role["role_name"] ?></span>
                 </div>
                 <!-- IMAGE --> 
@@ -26,6 +27,7 @@
                 $imageFileName = $role["path_img_role"];
                 $imageUrl = $imagePath . $imageFileName;
                 ?>
+                <!-- L'image du role est affichée en utilisant le chemin d'accès et le nom de fichier d'image stockés dans les variables. -->
                 <img class="image-role" src="<?= $imageUrl ?>" alt="photo du role <?= ucfirst($role["role_name"]) ?>">
             </div>
         </a>
