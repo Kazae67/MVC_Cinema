@@ -1,15 +1,25 @@
+<!-- temporisation de sortie -->
 <?php
 ob_start();
+/* L'image associée au realisateur est affichée en utilisant les informations du chemin d'accès et du nom de fichier d'image stockées dans les variables. 
+L'URL de l'image est générée en concaténant le chemin d'accès et le nom de fichier. */
 $imagePathFilm = 'public/images/imgFilms/';
 $imagePathActeur = 'public/images/imgActeurs/';
 $imagePathRole = 'public/images/imgRoles/';
 ?>
 
+<!-- La variable $liste est définie avec un message indiquant le nombre de castings disponibles. Si le nombre de castings est supérieur à 1, le texte est au pluriel. -->
 <?php $liste = "Nombre de Casting".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
+
+<!-- Afficher le nombre total de casting disponibles en utilisant la fonction rowCount() de l'objet $request. -->
 <p class="row-count-list"> Un total de <?= $request->rowCount() ?> casting<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
-<div class="film-card-list">
+<!-- LISTE DES CARDS CASTING -->
+<div class="casting-card-list">
     <?php
+
+    /* Boucle foreach pour itérer sur chaque castings récupéré à partir de l'objet $request->fetchAll(). 
+    Chaque réalisateur est affiché sous forme de card avec un lien vers les informations détaillées du casting. */
     foreach ($request->fetchAll() as $casting) { ?>
         <div class="casting-container">
             <div class="casting-images-container">

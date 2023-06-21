@@ -1,5 +1,7 @@
 <!-- temporisation de sortie -->
-<?php ob_start(); ?>
+<?php 
+ob_start(); 
+?>
 
 <!-- La variable $liste est définie avec un message indiquant le nombre de rôles disponibles. Si le nombre de rôles est supérieur à 1, le texte est au pluriel. -->
 <?php $liste = "Nombre de Rôle".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
@@ -9,8 +11,8 @@
 
 <!-- LISTE DES CARDS ROLE -->
 <div class="role-card-list">
-    
-    <!-- Boucle foreach pour itérer sur chaque rôle récupéré à partir de l'objet $request->fetchAll(). 
+
+    <!-- Boucle foreach pour itérer sur chaque rôles récupéré à partir de l'objet $request->fetchAll(). 
     Chaque rôle est affiché sous forme de card avec un lien vers les informations détaillées du rôle. -->
     <?php foreach ($request->fetchAll() as $role): ?>
         <a href="index.php?action=infosRole&id=<?= $role["id_role"] ?>">

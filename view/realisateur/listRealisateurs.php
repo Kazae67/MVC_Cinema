@@ -1,5 +1,7 @@
 <!-- temporisation de sortie -->
-<?php ob_start(); ?>
+<?php 
+ob_start(); 
+?>
 
 <!-- La variable $liste est définie avec un message indiquant le nombre de réalisateur disponibles. Si le nombre de rôles est supérieur à 1, le texte est au pluriel. -->
 <?php $liste = "Nombre de Réalisateur".($request->rowCount() > 1 ? "s" : "")." disponible".($request->rowCount() > 1 ? "s" : ""); ?>
@@ -10,11 +12,11 @@
 <!-- LISTE DES CARDS REALISATEUR -->
 <div class="realisateur-card-list">
 
-    <!-- Boucle foreach pour itérer sur chaque réalisateur récupéré à partir de l'objet $request->fetchAll(). 
+    <!-- Boucle foreach pour itérer sur chaque réalisateurs récupéré à partir de l'objet $request->fetchAll(). 
     Chaque réalisateur est affiché sous forme de card avec un lien vers les informations détaillées du réalisateur. -->
     <?php while ($realisateur = $request->fetch()): ?>
-        <div class="realisateur-card">
-            <a href="index.php?action=infosRealisateur&id=<?= $realisateur["id_realisateur"] ?>">
+        <a href="index.php?action=infosRealisateur&id=<?= $realisateur["id_realisateur"] ?>">
+            <div class="realisateur-card">
                 <div class="realisateur-card-infos">
                     <!-- À l'intérieur de chaque card de réalisateur, les informations du réalisateur sont affichées -->
                     <span><?= $realisateur["prenom"]." ".$realisateur["nom"] ?></span>
