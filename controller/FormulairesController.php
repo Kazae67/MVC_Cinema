@@ -8,17 +8,20 @@ class FormulairesController {
     // Ajouter ACTEUR
     public function ajouterActeur() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Récupération des données du formulaire
             $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
             $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
             $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_SPECIAL_CHARS);
             $birthdate = filter_input(INPUT_POST, "birthdate", FILTER_SANITIZE_SPECIAL_CHARS);
             $biographie = filter_input(INPUT_POST, "biographie", FILTER_SANITIZE_SPECIAL_CHARS);
 
+            // Vérification de la présence de l'image
             if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
                 header("Location: index.php?action=ajouterActeur&error=Veuillez sélectionner une image");
                 exit;
             }
 
+            // Traitement de l'image
             $file = $_FILES["image"];
             $filename = $file["name"];
             $filePathTemporaire = $file["tmp_name"];
@@ -29,11 +32,13 @@ class FormulairesController {
             $destinationPath = "public/images/imgActeurs/";
             $destinationFile = $destinationPath . $newImageFileName;
 
+             // Erreur / Déplacement de l'image vers le dossier de destination
             if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
                 header("Location: index.php?action=ajouterActeur&error=Une erreur s'est produite lors du téléchargement de l'image");
                 exit;
             }
 
+            // Insertion des données dans la base de données
             $pdo = Connect::Connexion();
             $query = "INSERT INTO acteur (prenom, nom, sexe, birthdate, biographie, path_img_acteur) VALUES (:prenom, :nom, :sexe, :birthdate, :biographie, :image)";
             $insertActeurStatement = $pdo->prepare($query);
@@ -46,6 +51,7 @@ class FormulairesController {
                 "image" => $newImageFileName
             ]);
 
+            // Redirection vers la liste des acteurs
             header("Location: index.php?action=listActeurs");
             exit;
         } else {
@@ -56,12 +62,14 @@ class FormulairesController {
     // Ajouter ROLE
     public function ajouterRole() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Récupération des données du formulaire
             $role_name = filter_input(INPUT_POST, "role_name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             if ($role_name) {
                 $pdo = Connect::Connexion();
 
+                // Traitement de l'image
                 $file = $_FILES["image"];
                 $filename = $file["name"];
                 $filePathTemporaire = $file["tmp_name"];
@@ -72,11 +80,13 @@ class FormulairesController {
                 $destinationPath = "public/images/imgRoles/";
                 $destinationFile = $destinationPath . $newImageFileName;
 
+                 // Erreur / Déplacement de l'image vers le dossier de destination
                 if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
                     header("Location: index.php?action=ajouterRole&error=Une erreur s'est produite lors du téléchargement de l'image");
                     exit;
                 }
 
+                // Insertion des données dans la base de données
                 $insertRoleStatement = $pdo->prepare("
                     INSERT INTO role (role_name, description, path_img_role)
                     VALUES (:role_name, :description, :path_img_role)
@@ -88,6 +98,7 @@ class FormulairesController {
                     "path_img_role" => $newImageFileName
                 ]);
 
+                // Redirection vers la liste des rôles
                 header('Location: index.php?action=listRoles');
                 exit;
             }
@@ -99,11 +110,13 @@ class FormulairesController {
     // Ajouter GENRE 
     public function ajouterGenre() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Récupération des données du formulaire
             $genre_name = filter_input(INPUT_POST, "genre_name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             if ($genre_name) {
                 $pdo = Connect::Connexion();
 
+                // Traitement de l'image
                 $file = $_FILES["image"];
                 $filename = $file["name"];
                 $image_temp_path = $file["tmp_name"];
@@ -114,16 +127,19 @@ class FormulairesController {
                 $destinationPath = "public/images/imgGenres/";
                 $destinationFile = $destinationPath . $newImageFileName;
 
+                // Erreur / Déplacement de l'image vers le dossier de destination
                 if (!move_uploaded_file($image_temp_path, $destinationFile)) {
                     header("Location: index.php?action=ajouterGenre&error=Une erreur s'est produite lors du téléchargement de l'image");
                     exit;
                 }
 
+                // Insertion des données dans la base de données
                 $insertGenreStatement = $pdo->prepare("
                     INSERT INTO genre (genre_name, path_img_genre)
                     VALUES (:genre_name, :path_img_genre)
                 ");
 
+                // Redirection vers la liste des genres
                 $insertGenreStatement->execute([
                     "genre_name" => $genre_name,
                     "path_img_genre" => $newImageFileName
@@ -134,23 +150,27 @@ class FormulairesController {
             }
         }
 
+        // Affiche ajouterGenre
         require "view/formulaires/ajouterGenre.php";
     }
 
     // Ajouter REALISATEUR
     public function ajouterRealisateur() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Récupération des données du formulaire
             $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $birthdate = filter_input(INPUT_POST, "birthdate", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $biographie = filter_input(INPUT_POST, "biographie", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+            // Vérification de la présence de l'image
             if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
                 header("Location: index.php?action=ajouterRealisateur&error=Veuillez sélectionner une image");
                 exit;
             }
 
+            // Traitement de l'image
             $file = $_FILES["image"];
             $filename = $file["name"];
             $filePathTemporaire = $file["tmp_name"];
@@ -161,6 +181,7 @@ class FormulairesController {
             $destinationPath = "public/images/imgRealisateurs/";
             $destinationFile = $destinationPath . $newImageFileName;
 
+            // Erreur / Déplacement de l'image vers le dossier de destination
             if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
                 header("Location: index.php?action=ajouterRealisateur&error=Une erreur s'est produite lors du téléchargement de l'image");
                 exit;
@@ -178,6 +199,7 @@ class FormulairesController {
                 "image" => $newImageFileName
             ]);
 
+            // Redirection vers la liste des réalisateurs
             header("Location: index.php?action=listRealisateurs");
             exit;
         } else {
@@ -188,6 +210,7 @@ class FormulairesController {
     // Ajouter FILM
     public function ajouterFilm() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Récupération des données du formulaire
             $titre_film = filter_input(INPUT_POST, "titre_film", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $genre_id = filter_input(INPUT_POST, "genre_id", FILTER_SANITIZE_NUMBER_INT);
             $realisateur_id = filter_input(INPUT_POST, "realisateur_id", FILTER_SANITIZE_NUMBER_INT);
@@ -196,11 +219,13 @@ class FormulairesController {
             $duree = filter_input(INPUT_POST, "duree", FILTER_SANITIZE_NUMBER_INT);
             $synopsis = filter_input(INPUT_POST, "synopsis", FILTER_SANITIZE_SPECIAL_CHARS);
 
+            // Vérification de la présence de l'image
             if (!isset($_FILES['image']) || $_FILES['image']['error'] === UPLOAD_ERR_NO_FILE) {
                 header("Location: index.php?action=ajouterFilm&error=Veuillez sélectionner une image");
                 exit;
             }
 
+            // Traitement de l'image
             $file = $_FILES["image"];
             $filename = $file["name"];
             $filePathTemporaire = $file["tmp_name"];
@@ -211,6 +236,7 @@ class FormulairesController {
             $destinationPath = "public/images/imgFilms/";
             $destinationFile = $destinationPath . $newImageFileName;
 
+            // Erreur / Déplacement de l'image vers le dossier de destination
             if (!move_uploaded_file($filePathTemporaire, $destinationFile)) {
                 header("Location: index.php?action=ajouterFilm&error=Une erreur s'est produite lors du téléchargement de l'image");
                 exit;
@@ -231,6 +257,7 @@ class FormulairesController {
                 "image" => $newImageFileName
             ]);
 
+            // Redirection vers la liste des films 
             header("Location: index.php?action=listFilms");
             exit;
         } else {
@@ -241,6 +268,7 @@ class FormulairesController {
             $selectRealisateursStatement = $pdo->query("SELECT * FROM realisateur");
             $realisateurs = $selectRealisateursStatement->fetchAll();
 
+            // Afficher ajouterFilm
             require "view/formulaires/ajouterFilm.php";
         }
     }
