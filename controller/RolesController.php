@@ -15,8 +15,9 @@ class RolesController {
         ";
 
         $request = $pdo->query($query);
-
-        require "view/role/listRoles.php";
+        
+        // Affiche la vue listRoles.php
+        require "view/role/listRoles.php"; 
     }
 
     public function infosRole($id) {
@@ -30,9 +31,11 @@ class RolesController {
             WHERE r.id_role = :id
         ";
 
+        // Récupère les informations sur le rôle spécifié par l'ID du rôle
         $request_role = $pdo->prepare($query_role);
         $request_role->execute(["id" => $id]);
         $role = $request_role->fetch();
+
 
         $query_acteur = "
             SELECT a.id_acteur, a.prenom, a.nom
@@ -41,11 +44,12 @@ class RolesController {
             WHERE c.role_id = :id
         ";
 
+        // Récupère les informations sur l'acteur associé au rôle spécifié par l'ID du rôle 
         $request_acteur = $pdo->prepare($query_acteur);
         $request_acteur->execute(["id" => $id]);
         $acteur = $request_acteur->fetch();
 
-        // Récupération des informations sur les films du rôle
+    
         $query_films = "
             SELECT f.titre_film, f.path_img_film, f.id_film
             FROM film f
@@ -53,10 +57,13 @@ class RolesController {
             WHERE c.role_id = :id
         ";
 
+        // Récupère les informations sur les films associés au rôle spécifié par l'ID du rôle
         $request_films = $pdo->prepare($query_films);
         $request_films->execute(["id" => $id]);
         $films = $request_films->fetchAll();
 
-        require "view/role/infosRole.php";
+    
+        // Affiche la vue infosRole.php 
+        require "view/role/infosRole.php"; 
     }
 }

@@ -6,7 +6,7 @@ use Model\Connect;
 
 class RealisateursController {
     
-    // Liste des REALISATEURS
+    /* Liste des REALISATEURS */
     public function listRealisateurs() {
         $pdo = Connect::Connexion();
         
@@ -17,24 +17,11 @@ class RealisateursController {
 
         $request = $pdo->query($query);
 
-        require "view/realisateur/listRealisateurs.php";
+        // Affiche la vue listRealisateurs.php
+        require "view/realisateur/listRealisateurs.php"; 
     }
 
-    //  Votre façon 
-    // public function listRealisateurs() {
-    //     $pdo=Connect::Connexion();
-    //     $query = ("
-    //         SELECT real.id_personne, p.prenom, ,p.nom, DATE_FORMAT(p.birthdate, '%d/%m/%Y') 
-    //         FROM personne p
-    //         inner join realisateur real ON p.id_personne = real.id_personne
-    //         ORDER BY p.birthdate DESC
-    //     ");
-    //     $request = $pdo->query($query);
-    //     require "view/realisateur/listRealisateurs.php";
-    // }
-
-
-    // Infos du REALISATEUR
+    /* Infos du REALISATEUR */
     public function infosRealisateur($id_realisateur) {
         $pdo = Connect::Connexion();
 
@@ -43,20 +30,24 @@ class RealisateursController {
             FROM realisateur rea
             WHERE rea.id_realisateur = :id_realisateur
         ";
-
+        
+        // Récupère les informations du réalisateur
         $request_realisateur_infos = $pdo->prepare($query_realisateur_infos);
         $request_realisateur_infos->execute(["id_realisateur" => $id_realisateur]);
 
+    
         $query_realisateur_list_films = "
             SELECT f.titre_film, f.date_sortie, f.duree, f.path_img_film, id_film
             FROM realisateur rea
             INNER JOIN film f ON f.realisateur_id = rea.id_realisateur
             WHERE rea.id_realisateur = :id_realisateur
         ";
-
+        // Récupère la liste des films réalisés
         $request_realisateur_list_films = $pdo->prepare($query_realisateur_list_films);
         $request_realisateur_list_films->execute(["id_realisateur" => $id_realisateur]);
 
-        require "view/realisateur/infosRealisateur.php";
+        
+        // Affiche la vue infosRealisateur.php
+        require "view/realisateur/infosRealisateur.php"; 
     }
 }

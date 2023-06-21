@@ -6,7 +6,7 @@ use Model\Connect;
 
 class FilmsController {
 
-    // Liste des FILMS
+    /* Liste des FILMS */
     public function listFilms() {
         $pdo = Connect::Connexion();
 
@@ -18,11 +18,11 @@ class FilmsController {
         ";
 
         $request = $pdo->query($query);
-
-        require "view/film/listFilms.php";
+        // Affiche la vue listFilms.php
+        require "view/film/listFilms.php"; 
     }
 
-    // Infos du FILM
+    /*Infos du FILM */
     public function infosFilm($id_film) {
         $pdo = Connect::Connexion();
     
@@ -33,10 +33,10 @@ class FilmsController {
             INNER JOIN genre g ON g.id_genre = f.genre_id
             WHERE f.id_film = :id_film
         ";
-    
+        // Récupère les informations du film
         $request_film = $pdo->prepare($query_film);
         $request_film->execute(["id_film" => $id_film]);
-    
+
         $query_casting = "
             SELECT prenom, nom, role_name, a.id_acteur, r.id_role
             FROM acteur a
@@ -46,9 +46,11 @@ class FilmsController {
             WHERE c.film_id = :id_film
         ";
     
+        // Récupère la liste des acteurs et leurs rôles dans le film 
         $request_casting = $pdo->prepare($query_casting);
         $request_casting->execute(["id_film" => $id_film]);
-    
-        require "view/film/infosFilm.php";
+
+        // Affiche la vue infosFilm.php
+        require "view/film/infosFilm.php"; 
     }
 }

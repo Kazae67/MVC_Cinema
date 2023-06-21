@@ -6,7 +6,7 @@ use Model\Connect;
 
 class GenresController {
     
-    // Liste des GENRES
+    /* Liste des GENRES */
     public function listGenres() {
         $pdo = Connect::Connexion();
 
@@ -17,10 +17,11 @@ class GenresController {
 
         $request = $pdo->query($query);
 
-        require "view/genre/listGenres.php";
+        // Affiche la vue listGenres.php
+        require "view/genre/listGenres.php"; 
     }
 
-    // Infos du GENRE
+    /* Infos du GENRE */
     public function infosGenre($id_genre) {
         $pdo = Connect::Connexion();
 
@@ -29,7 +30,7 @@ class GenresController {
             FROM genre
             WHERE id_genre = :id_genre
         ";
-
+        // Récupère les informations du genre
         $request_genre_infos = $pdo->prepare($query_genre_infos);
         $request_genre_infos->execute(["id_genre" => $id_genre]);
 
@@ -42,10 +43,12 @@ class GenresController {
             WHERE g.id_genre = :id_genre
             ORDER BY date_sortie DESC
         ";
-
+        // Récupère la liste des films appartenant au genre
         $request_genre_list_films = $pdo->prepare($query_genre_list_films);
         $request_genre_list_films->execute(["id_genre" => $id_genre]);
 
-        require "view/genre/infosGenre.php";
+        
+        // Affiche la vue infosGenre.php 
+        require "view/genre/infosGenre.php"; 
     }
 }

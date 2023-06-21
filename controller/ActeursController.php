@@ -41,7 +41,7 @@ class ActeursController {
             INNER JOIN role r ON r.id_role = c.role_id
             WHERE a.id_acteur = :id_acteur
         ";
-        // Récupère la liste des films dans lesquels l'acteur a joué en utilisant
+        // Récupère la liste des films dans lesquels l'acteur a joué 
         $request_acteur_list_films = $pdo->prepare($query_acteur_list_films);
         $request_acteur_list_films->execute(["id_acteur" => $id_acteur]);
 

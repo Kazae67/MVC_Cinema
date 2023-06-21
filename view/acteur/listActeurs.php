@@ -9,7 +9,6 @@ ob_start();
 <!-- Afficher le nombre total d'acteur disponibles en utilisant la fonction rowCount() de l'objet $request. -->
 <p class="row-count-list"> Un total de <?= $request->rowCount() ?> acteur<?= ($request->rowCount() > 1) ? "s" : "" ?> disponible<?= ($request->rowCount() > 1) ? "s" : "" ?></p>
 
-
 <!-- LISTE DES CARDS ACTEUR -->
 <div class="acteur-card-list">
     <?php foreach ($request->fetchAll() as $acteur): ?>
