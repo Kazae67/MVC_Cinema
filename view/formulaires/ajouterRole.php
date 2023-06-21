@@ -7,12 +7,15 @@ ob_start();
     <label>Rôle :</label>
     <input type="textarea" name="role_name" id="role_nom" required>
 
+    <!-- DESCRIPTION -->
     <label>Description :</label>
     <textarea name="description" rows="5" required></textarea>
 
+    <!-- IMAGE -->
     <label>Image :</label>
     <input type="file" name="image" accept="image/*" required>
 
+    <!-- BOUTON -->
     <input type="submit" name="submit" value="Ajouter le rôle">
 </form>
 
