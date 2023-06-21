@@ -55,6 +55,7 @@ class FormulairesController {
             header("Location: index.php?action=listActeurs");
             exit;
         } else {
+            // Affiche ajouterActeur.php
             require "view/formulaires/ajouterActeur.php";
         }
     }
@@ -104,6 +105,7 @@ class FormulairesController {
             }
         }
 
+        // Affiche ajouterRole.php
         require "view/formulaires/ajouterRole.php";
     }
 
@@ -203,6 +205,7 @@ class FormulairesController {
             header("Location: index.php?action=listRealisateurs");
             exit;
         } else {
+            // Affiche ajouterRealisateur.php
             require "view/formulaires/ajouterRealisateur.php";
         }
     }
@@ -273,8 +276,52 @@ class FormulairesController {
         }
     }
 
-    // ajouter CASTING
-    public function ajouterCasting(){
+    public function ajouterCasting()
+    {
+        $pdo = Connect::Connexion();
+    
+        // Requête pour ACTEUR
+        $requestActeur = $pdo->query("
+            SELECT CONCAT(prenom, ' ', nom) AS acteurNomComplet, id_acteur
+            FROM acteur
+        ");
+    
+        // Requête pour FILM
+        $requestFilm = $pdo->query("
+            SELECT id_film, titre_film
+            FROM Film
+        ");
+    
+        // Requête pour RÔLE
+        $requestRole = $pdo->query("
+            SELECT id_role, role_name
+            FROM role
+        ");
+    
+        if (isset($_POST['submit'])) {
+            // Filtrer pour éviter les failles XSS, puis associer à une variable
+            $acteur_id = filter_input(INPUT_POST, "acteur_id", FILTER_SANITIZE_SPECIAL_CHARS);
+            $film_id = filter_input(INPUT_POST, "film_id", FILTER_SANITIZE_SPECIAL_CHARS);
+            $role_id = filter_input(INPUT_POST, "role_id", FILTER_SANITIZE_SPECIAL_CHARS);
+    
+            // Vérification
+            if ($acteur_id && $film_id && $role_id) {
+                $pdo = Connect::Connexion();
+    
+                $insertCastingsStatement = $pdo->prepare("
+                    INSERT INTO casting (acteur_id, film_id, role_id )
+                    VALUES (:acteur_id, :film_id, :role_id)
+                ");
+    
+                $insertCastingsStatement->execute(["acteur_id" => $acteur_id, "film_id" => $film_id, "role_id" => $role_id]);
+    
+                // Redirection vers la liste des castings 
+                header('Location: index.php?action=listCastings');
+                exit();
+            }
+        }
+    
+        // Afficher ajouterCasting.php
         require "view/formulaires/ajouterCasting.php";
     }
 }
