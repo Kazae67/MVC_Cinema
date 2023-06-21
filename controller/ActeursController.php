@@ -6,9 +6,9 @@ use Model\Connect;
 
 class ActeursController {
 
-    // Liste des ACTEURS
+    /* Liste des ACTEURS */
     public function listActeurs() {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
 
         $query = "
             SELECT prenom, nom, sexe, DATE_FORMAT(birthdate, '%d-%m-%Y') AS birthdate, id_acteur, path_img_acteur
@@ -16,13 +16,13 @@ class ActeursController {
         ";
 
         $request = $pdo->query($query);
-
-        require "view/acteur/listActeurs.php";
+        // Affiche la vue listActeurs.php
+        require "view/acteur/listActeurs.php"; 
     }
 
-    // Infos de l'ACTEUR
+    /* Infos de l'ACTEUR */
     public function infosActeur($id_acteur) {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
     
         $query_acteur_infos = "
             SELECT a.id_acteur, a.prenom, a.nom, a.sexe, DATE_FORMAT(a.birthdate, '%d/%m/%Y') AS birthdate, a.biographie
@@ -31,7 +31,8 @@ class ActeursController {
         ";
         $request_acteur_infos = $pdo->prepare($query_acteur_infos);
         $request_acteur_infos->execute(["id_acteur" => $id_acteur]);
-    
+
+        // Récupère les informations de l'acteur
         $query_acteur_list_films = "
             SELECT a.id_acteur, f.titre_film, f.date_sortie, r.id_role, r.role_name, f.id_film, f.path_img_film
             FROM acteur a
@@ -40,9 +41,11 @@ class ActeursController {
             INNER JOIN role r ON r.id_role = c.role_id
             WHERE a.id_acteur = :id_acteur
         ";
+        // Récupère la liste des films dans lesquels l'acteur a joué en utilisant
         $request_acteur_list_films = $pdo->prepare($query_acteur_list_films);
         $request_acteur_list_films->execute(["id_acteur" => $id_acteur]);
-    
-        require "view/acteur/infosActeur.php";
+
+        // Affiche la vue infosActeur.php
+        require "view/acteur/infosActeur.php"; 
     }
 }

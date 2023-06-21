@@ -8,7 +8,7 @@ class GenresController {
     
     // Liste des GENRES
     public function listGenres() {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
 
         $query = "
             SELECT genre_name, id_genre, path_img_genre
@@ -22,7 +22,7 @@ class GenresController {
 
     // Infos du GENRE
     public function infosGenre($id_genre) {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
 
         $query_genre_infos = "
             SELECT genre_name, id_genre, path_img_genre

@@ -8,7 +8,7 @@ class FilmsController {
 
     // Liste des FILMS
     public function listFilms() {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
 
         $query = "
             SELECT id_film, titre_film, date_sortie, genre_name, duree, path_img_film
@@ -24,7 +24,7 @@ class FilmsController {
 
     // Infos du FILM
     public function infosFilm($id_film) {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
     
         $query_film = "
             SELECT titre_film, date_sortie, duree, synopsis, genre_name, rea.prenom AS rea_prenom, rea.nom AS rea_nom, note, path_img_film, id_realisateur, genre_id

@@ -7,7 +7,7 @@ use Model\Connect;
 class RolesController {
 
     public function listRoles() {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
         
         $query = "
             SELECT r.id_role, r.role_name, r.path_img_role
@@ -20,7 +20,7 @@ class RolesController {
     }
 
     public function infosRole($id) {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
 
         $query_role = "
             SELECT r.role_name, r.description, GROUP_CONCAT(f.titre_film SEPARATOR ', ') AS films

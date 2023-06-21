@@ -34,7 +34,7 @@ class FormulairesController {
                 exit;
             }
 
-            $pdo = Connect::seConnecter();
+            $pdo = Connect::Connexion();
             $query = "INSERT INTO acteur (prenom, nom, sexe, birthdate, biographie, path_img_acteur) VALUES (:prenom, :nom, :sexe, :birthdate, :biographie, :image)";
             $insertActeurStatement = $pdo->prepare($query);
             $insertActeurStatement->execute([
@@ -60,7 +60,7 @@ class FormulairesController {
             $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             if ($role_name) {
-                $pdo = Connect::seConnecter();
+                $pdo = Connect::Connexion();
 
                 $file = $_FILES["image"];
                 $filename = $file["name"];
@@ -102,7 +102,7 @@ class FormulairesController {
             $genre_name = filter_input(INPUT_POST, "genre_name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             if ($genre_name) {
-                $pdo = Connect::seConnecter();
+                $pdo = Connect::Connexion();
 
                 $file = $_FILES["image"];
                 $filename = $file["name"];
@@ -166,7 +166,7 @@ class FormulairesController {
                 exit;
             }
 
-            $pdo = Connect::seConnecter();
+            $pdo = Connect::Connexion();
             $query = "INSERT INTO realisateur (prenom, nom, sexe, birthdate, biographie, path_img_realisateur) VALUES (:prenom, :nom, :sexe, :birthdate, :biographie, :image)";
             $insertRealisateurStatement = $pdo->prepare($query);
             $insertRealisateurStatement->execute([
@@ -216,7 +216,7 @@ class FormulairesController {
                 exit;
             }
 
-            $pdo = Connect::seConnecter();
+            $pdo = Connect::Connexion();
             $query = "INSERT INTO film (titre_film, genre_id, realisateur_id, date_sortie, note, duree, synopsis, path_img_film)
                       VALUES (:titre_film, :genre_id, :realisateur_id, :date_sortie, :note, :duree, :synopsis, :image)";
             $insertFilmStatement = $pdo->prepare($query);
@@ -234,7 +234,7 @@ class FormulairesController {
             header("Location: index.php?action=listFilms");
             exit;
         } else {
-            $pdo = Connect::seConnecter();
+            $pdo = Connect::Connexion();
             $selectGenresStatement = $pdo->query("SELECT * FROM genre");
             $genres = $selectGenresStatement->fetchAll();
 

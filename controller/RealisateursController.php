@@ -8,7 +8,7 @@ class RealisateursController {
     
     // Liste des REALISATEURS
     public function listRealisateurs() {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
         
         $query = "
             SELECT prenom, nom, sexe, birthdate, id_realisateur, path_img_realisateur
@@ -22,7 +22,7 @@ class RealisateursController {
 
     //  Votre façon 
     // public function listRealisateurs() {
-    //     $pdo=Connect::seConnecter();
+    //     $pdo=Connect::Connexion();
     //     $query = ("
     //         SELECT real.id_personne, p.prenom, ,p.nom, DATE_FORMAT(p.birthdate, '%d/%m/%Y') 
     //         FROM personne p
@@ -36,7 +36,7 @@ class RealisateursController {
 
     // Infos du REALISATEUR
     public function infosRealisateur($id_realisateur) {
-        $pdo = Connect::seConnecter();
+        $pdo = Connect::Connexion();
 
         $query_realisateur_infos = "
             SELECT DISTINCT rea.id_realisateur, rea.prenom, rea.nom, rea.birthdate, rea.path_img_realisateur, rea.biographie
