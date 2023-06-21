@@ -48,12 +48,16 @@ $imageSrc = $imagePath . $film["path_img_film"];
                 </div>
 
                 <?php
+
+                // VÉRIFICATION
+                // Vérifier s'il y a des acteurs dans le casting
                 if ($request_casting->rowCount() > 0) {
                     ?>
                     <div class="casting-info">
                         <span>Il y a un total de <?= $request_casting->rowCount() ?> acteur<?= ($request_casting->rowCount() > 1) ? "s" : "" ?> dans ce film :</span>
                         <ul class="casting-list">
                             <?php
+                            // Parcourir tous les acteurs du casting
                             foreach ($request_casting->fetchAll() as $casting) {
                                 ?>
                                 <li>
